@@ -9,6 +9,7 @@
 #import "AWMasterViewController.h"
 
 #import "AWDetailViewController.h"
+#import <RestKit/RestKit.h>
 
 @interface AWMasterViewController () {
     NSMutableArray *_objects;
