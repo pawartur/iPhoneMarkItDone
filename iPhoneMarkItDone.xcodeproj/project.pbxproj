@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		75CE97E315BB2CEB0043D3FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E215BB2CEB0043D3FC /* UIKit.framework */; };
+		75CE97E515BB2CEB0043D3FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E415BB2CEB0043D3FC /* Foundation.framework */; };
+		75CE97E715BB2CEB0043D3FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E615BB2CEB0043D3FC /* CoreGraphics.framework */; };
+		75CE97ED15BB2CEB0043D3FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75CE97EB15BB2CEB0043D3FC /* InfoPlist.strings */; };
+		75CE97EF15BB2CEB0043D3FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CE97EE15BB2CEB0043D3FC /* main.m */; };
+		75CE97F315BB2CEB0043D3FC /* AWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */; };
+		75CE97F615BB2CEB0043D3FC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75CE97F415BB2CEB0043D3FC /* MainStoryboard.storyboard */; };
+		75CE97F915BB2CEB0043D3FC /* AWMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CE97F815BB2CEB0043D3FC /* AWMasterViewController.m */; };
+		75CE97FC15BB2CEB0043D3FC /* AWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CE97FB15BB2CEB0043D3FC /* AWDetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		75CE97DE15BB2CEB0043D3FC /* iPhoneMarkItDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneMarkItDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75CE97E215BB2CEB0043D3FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		75CE97E415BB2CEB0043D3FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		75CE97E615BB2CEB0043D3FC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		75CE97EA15BB2CEB0043D3FC /* iPhoneMarkItDone-Info.plist */ = {isa = PBXFileReference; path = "iPhoneMarkItDone-Info.plist"; sourceTree = "<group>"; };
+		75CE97EC15BB2CEB0043D3FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		75CE97EE15BB2CEB0043D3FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		75CE97F015BB2CEB0043D3FC /* iPhoneMarkItDone-Prefix.pch */ = {isa = PBXFileReference; path = "iPhoneMarkItDone-Prefix.pch"; sourceTree = "<group>"; };
+		75CE97F115BB2CEB0043D3FC /* AWAppDelegate.h */ = {isa = PBXFileReference; path = AWAppDelegate.h; sourceTree = "<group>"; };
+		75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWAppDelegate.m; sourceTree = "<group>"; };
+		75CE97F515BB2CEB0043D3FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		75CE97F715BB2CEB0043D3FC /* AWMasterViewController.h */ = {isa = PBXFileReference; path = AWMasterViewController.h; sourceTree = "<group>"; };
+		75CE97F815BB2CEB0043D3FC /* AWMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWMasterViewController.m; sourceTree = "<group>"; };
+		75CE97FA15BB2CEB0043D3FC /* AWDetailViewController.h */ = {isa = PBXFileReference; path = AWDetailViewController.h; sourceTree = "<group>"; };
+		75CE97FB15BB2CEB0043D3FC /* AWDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWDetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		75CE97DB15BB2CEB0043D3FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75CE97E315BB2CEB0043D3FC /* UIKit.framework in Frameworks */,
+				75CE97E515BB2CEB0043D3FC /* Foundation.framework in Frameworks */,
+				75CE97E715BB2CEB0043D3FC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75CE97D315BB2CEA0043D3FC = {
+			isa = PBXGroup;
+			children = (
+				75CE97E815BB2CEB0043D3FC /* iPhoneMarkItDone */,
+				75CE97E115BB2CEB0043D3FC /* Frameworks */,
+				75CE97DF15BB2CEB0043D3FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		75CE97DF15BB2CEB0043D3FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75CE97DE15BB2CEB0043D3FC /* iPhoneMarkItDone.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75CE97E115BB2CEB0043D3FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75CE97E215BB2CEB0043D3FC /* UIKit.framework */,
+				75CE97E415BB2CEB0043D3FC /* Foundation.framework */,
+				75CE97E615BB2CEB0043D3FC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75CE97E815BB2CEB0043D3FC /* iPhoneMarkItDone */ = {
+			isa = PBXGroup;
+			children = (
+				75CE97F115BB2CEB0043D3FC /* AWAppDelegate.h */,
+				75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */,
+				75CE97F415BB2CEB0043D3FC /* MainStoryboard.storyboard */,
+				75CE97F715BB2CEB0043D3FC /* AWMasterViewController.h */,
+				75CE97F815BB2CEB0043D3FC /* AWMasterViewController.m */,
+				75CE97FA15BB2CEB0043D3FC /* AWDetailViewController.h */,
+				75CE97FB15BB2CEB0043D3FC /* AWDetailViewController.m */,
+				75CE97E915BB2CEB0043D3FC /* Supporting Files */,
+			);
+			path = iPhoneMarkItDone;
+			sourceTree = "<group>";
+		};
+		75CE97E915BB2CEB0043D3FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75CE97EA15BB2CEB0043D3FC /* iPhoneMarkItDone-Info.plist */,
+				75CE97EB15BB2CEB0043D3FC /* InfoPlist.strings */,
+				75CE97EE15BB2CEB0043D3FC /* main.m */,
+				75CE97F015BB2CEB0043D3FC /* iPhoneMarkItDone-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		75CE97DD15BB2CEB0043D3FC /* iPhoneMarkItDone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75CE97FF15BB2CEB0043D3FC /* Build configuration list for PBXNativeTarget "iPhoneMarkItDone" */;
+			buildPhases = (
+				75CE97DA15BB2CEB0043D3FC /* Sources */,
+				75CE97DB15BB2CEB0043D3FC /* Frameworks */,
+				75CE97DC15BB2CEB0043D3FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPhoneMarkItDone;
+			productName = iPhoneMarkItDone;
+			productReference = 75CE97DE15BB2CEB0043D3FC /* iPhoneMarkItDone.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75CE97D515BB2CEA0043D3FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AW;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 75CE97D815BB2CEA0043D3FC /* Build configuration list for PBXProject "iPhoneMarkItDone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 75CE97D315BB2CEA0043D3FC;
+			productRefGroup = 75CE97DF15BB2CEB0043D3FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75CE97DD15BB2CEB0043D3FC /* iPhoneMarkItDone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		75CE97DC15BB2CEB0043D3FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75CE97ED15BB2CEB0043D3FC /* InfoPlist.strings in Resources */,
+				75CE97F615BB2CEB0043D3FC /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		75CE97DA15BB2CEB0043D3FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75CE97EF15BB2CEB0043D3FC /* main.m in Sources */,
+				75CE97F315BB2CEB0043D3FC /* AWAppDelegate.m in Sources */,
+				75CE97F915BB2CEB0043D3FC /* AWMasterViewController.m in Sources */,
+				75CE97FC15BB2CEB0043D3FC /* AWDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		75CE97EB15BB2CEB0043D3FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75CE97EC15BB2CEB0043D3FC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		75CE97F415BB2CEB0043D3FC /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75CE97F515BB2CEB0043D3FC /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		75CE97FD15BB2CEB0043D3FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		75CE97FE15BB2CEB0043D3FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		75CE980015BB2CEB0043D3FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iPhoneMarkItDone/iPhoneMarkItDone-Prefix.pch";
+				INFOPLIST_FILE = "iPhoneMarkItDone/iPhoneMarkItDone-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		75CE980115BB2CEB0043D3FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iPhoneMarkItDone/iPhoneMarkItDone-Prefix.pch";
+				INFOPLIST_FILE = "iPhoneMarkItDone/iPhoneMarkItDone-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		75CE97D815BB2CEA0043D3FC /* Build configuration list for PBXProject "iPhoneMarkItDone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75CE97FD15BB2CEB0043D3FC /* Debug */,
+				75CE97FE15BB2CEB0043D3FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75CE97FF15BB2CEB0043D3FC /* Build configuration list for PBXNativeTarget "iPhoneMarkItDone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75CE980015BB2CEB0043D3FC /* Debug */,
+				75CE980115BB2CEB0043D3FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75CE97D515BB2CEA0043D3FC /* Project object */;
+}
