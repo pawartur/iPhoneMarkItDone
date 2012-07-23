@@ -27,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
+    //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
@@ -53,6 +56,18 @@
     [_objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    RKClient *client = [RKClient clientWithBaseURLString:@"http://markitdone.dev:8000/"];
+    [client get:@"/accounts/authenticate/" usingBlock:^(RKRequest *request){
+        request.authenticationType = RKRequestAuthenticationTypeHTTPBasic;
+        request.username = @"artur";
+        request.password = @"artur";
+        request.onDidLoadResponse = ^(RKResponse *response){
+            int statusCode = response.statusCode;
+            NSString *responseBody = [response bodyAsString];
+            NSLog(@"Received response with status code %i", statusCode);
+        }; 
+    }];
 }
 
 #pragma mark - Table View
