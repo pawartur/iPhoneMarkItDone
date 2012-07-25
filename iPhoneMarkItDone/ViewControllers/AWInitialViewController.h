@@ -7,13 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AWMarkItDoneAPIManager.h"
 #import "AWMarkItDoneAPIManagerDelegate.h"
+#import "AWCoolButton.h"
 
-@interface AWInitialViewController : UIViewController <AWMarkItDoneAPIManagerDelegate>
+@interface AWInitialViewController : UIViewController <AWMarkItDoneAPIManagerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;
-@property (strong, nonatomic) IBOutlet UIButton *retryLoginButton;
+@property (strong, nonatomic) IBOutlet AWCoolButton *actionButton;
+@property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) AWMarkItDoneAPIManager *apiManager;
 
-- (IBAction)retryLogin:(UIButton *)sender;
+- (IBAction)makeAction:(UIButton *)sender;
+
+-(void)prepareForLogin;
+-(void)showInfo:(NSString *)info forFurtherActionWithName:(NSString *)furtherActionName;
 
 @end

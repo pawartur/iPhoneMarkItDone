@@ -23,95 +23,53 @@
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="f3L-uc-nEo">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="f3L-uc-nEo">
                                 <rect key="frame" x="20" y="153" width="280" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fyf-nK-iCf">
-                                <rect key="frame" x="77" y="279" width="166" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Try Again">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="retryLogin:" destination="18C-1y-XmR" eventType="touchUpInside" id="5Us-R7-yfG"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="infoLabel" destination="f3L-uc-nEo" id="6dL-OP-k4E"/>
-                        <outlet property="retryLoginButton" destination="Fyf-nK-iCf" id="g6N-dC-PTc"/>
-                        <segue destination="GaJ-xM-cQm" kind="modal" identifier="showTodos" modalTransitionStyle="crossDissolve" id="qRA-qd-DCJ"/>
-                        <segue destination="IaI-KT-eKd" kind="modal" identifier="showLoginScreen" modalTransitionStyle="crossDissolve" id="Udx-kU-Emg"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="-256" y="207"/>
-        </scene>
-        <!--Login View Controller-->
-        <scene sceneID="Dtx-oq-Xv4">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jnr-Yj-cnq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="IaI-KT-eKd" customClass="AWLoginViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4Uu-bD-UJb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="MarkItDone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="trK-Sd-gmM">
-                                <rect key="frame" x="20" y="78" width="280" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="54"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="shadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" clearButtonMode="whileEditing" id="4N6-uD-dbY">
-                                <rect key="frame" x="20" y="153" width="280" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" clearButtonMode="whileEditing" id="QNX-Pq-XUU">
-                                <rect key="frame" x="20" y="214" width="280" height="31"/>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" clearButtonMode="whileEditing" id="A61-9H-Gor">
+                                <rect key="frame" x="30" y="212" width="280" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Y9-bc-MXo">
-                                <rect key="frame" x="77" y="279" width="166" height="37"/>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" clearButtonMode="whileEditing" id="Wz3-h6-3eF">
+                                <rect key="frame" x="30" y="153" width="280" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fyf-nK-iCf" customClass="AWCoolButton">
+                                <rect key="frame" x="30" y="279" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="login:" destination="IaI-KT-eKd" eventType="touchUpInside" id="90T-5E-XfF"/>
+                                    <action selector="makeAction:" destination="18C-1y-XmR" eventType="touchUpInside" id="y1W-Ha-obE"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="passwordTextField" destination="QNX-Pq-XUU" id="D3W-rl-y9O"/>
-                        <outlet property="usernameTextField" destination="4N6-uD-dbY" id="p1T-he-6Yb"/>
+                        <outlet property="actionButton" destination="Fyf-nK-iCf" id="k9w-d1-PW0"/>
+                        <outlet property="infoLabel" destination="f3L-uc-nEo" id="6dL-OP-k4E"/>
+                        <outlet property="passwordTextField" destination="A61-9H-Gor" id="ooc-gj-mGt"/>
+                        <outlet property="usernameTextField" destination="Wz3-h6-3eF" id="4z0-Pm-906"/>
+                        <segue destination="GaJ-xM-cQm" kind="modal" identifier="showTodos" modalTransitionStyle="crossDissolve" id="qRA-qd-DCJ"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-256" y="-484"/>
+            <point key="canvasLocation" x="-256" y="207"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="omp-ba-Mtg">
@@ -152,18 +110,15 @@
         </scene>
     </scenes>
     <classes>
+        <class className="AWCoolButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AWCoolButton.h"/>
+        </class>
         <class className="AWInitialViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AWInitialViewController.h"/>
             <relationships>
-                <relationship kind="action" name="retryLogin:" candidateClass="UIButton"/>
+                <relationship kind="action" name="makeAction:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="actionButton" candidateClass="AWCoolButton"/>
                 <relationship kind="outlet" name="infoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="retryLoginButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="AWLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AWLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="login:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
             </relationships>

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		751F801315BFEC3400230129 /* AWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F801215BFEC3400230129 /* AWLoginViewController.m */; };
+		751F802115C0340000230129 /* AWCoolButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F802015C0340000230129 /* AWCoolButton.m */; };
+		751F802515C0348300230129 /* AWCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F802415C0348300230129 /* AWCommon.m */; };
 		752C466115BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */; };
 		75CE97E315BB2CEB0043D3FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E215BB2CEB0043D3FC /* UIKit.framework */; };
 		75CE97E515BB2CEB0043D3FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E415BB2CEB0043D3FC /* Foundation.framework */; };
@@ -74,8 +75,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		751F801115BFEC3400230129 /* AWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWLoginViewController.h; path = ViewControllers/AWLoginViewController.h; sourceTree = "<group>"; };
-		751F801215BFEC3400230129 /* AWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWLoginViewController.m; path = ViewControllers/AWLoginViewController.m; sourceTree = "<group>"; };
+		751F801F15C0340000230129 /* AWCoolButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWCoolButton.h; sourceTree = "<group>"; };
+		751F802015C0340000230129 /* AWCoolButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWCoolButton.m; sourceTree = "<group>"; };
+		751F802315C0348300230129 /* AWCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWCommon.h; sourceTree = "<group>"; };
+		751F802415C0348300230129 /* AWCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWCommon.m; sourceTree = "<group>"; };
 		752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManager.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.h; sourceTree = SOURCE_ROOT; };
 		752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWMarkItDoneAPIManager.m; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.m; sourceTree = SOURCE_ROOT; };
 		752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManagerDelegate.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManagerDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -127,6 +130,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		751F801E15C0340000230129 /* AWCoolButton */ = {
+			isa = PBXGroup;
+			children = (
+				751F801F15C0340000230129 /* AWCoolButton.h */,
+				751F802015C0340000230129 /* AWCoolButton.m */,
+			);
+			path = AWCoolButton;
+			sourceTree = SOURCE_ROOT;
+		};
+		751F802215C0348300230129 /* AWCommon */ = {
+			isa = PBXGroup;
+			children = (
+				751F802315C0348300230129 /* AWCommon.h */,
+				751F802415C0348300230129 /* AWCommon.m */,
+			);
+			path = AWCommon;
+			sourceTree = SOURCE_ROOT;
+		};
 		752C465E15BDC528002FFCA2 /* MarkItDoneAPIManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,9 +196,11 @@
 		75CE97E815BB2CEB0043D3FC /* iPhoneMarkItDone */ = {
 			isa = PBXGroup;
 			children = (
-				75E0638815BF234700D9D625 /* ViewControllers */,
-				752C465E15BDC528002FFCA2 /* MarkItDoneAPIManager */,
+				751F802215C0348300230129 /* AWCommon */,
+				751F801E15C0340000230129 /* AWCoolButton */,
 				75E0639715BF250900D9D625 /* AWKeychainWrapper */,
+				752C465E15BDC528002FFCA2 /* MarkItDoneAPIManager */,
+				75E0638815BF234700D9D625 /* ViewControllers */,
 				75CE97F115BB2CEB0043D3FC /* AWAppDelegate.h */,
 				75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */,
 				75CE97F415BB2CEB0043D3FC /* MainStoryboard.storyboard */,
@@ -215,8 +238,6 @@
 			children = (
 				75E0638915BF238800D9D625 /* AWInitialViewController.h */,
 				75E0638A15BF238800D9D625 /* AWInitialViewController.m */,
-				751F801115BFEC3400230129 /* AWLoginViewController.h */,
-				751F801215BFEC3400230129 /* AWLoginViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -343,7 +364,8 @@
 				752C466115BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m in Sources */,
 				75E0638B15BF238800D9D625 /* AWInitialViewController.m in Sources */,
 				75E0639A15BF250900D9D625 /* AWKeychainWrapper.m in Sources */,
-				751F801315BFEC3400230129 /* AWLoginViewController.m in Sources */,
+				751F802115C0340000230129 /* AWCoolButton.m in Sources */,
+				751F802515C0348300230129 /* AWCommon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
