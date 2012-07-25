@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		751F802115C0340000230129 /* AWCoolButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F802015C0340000230129 /* AWCoolButton.m */; };
 		751F802515C0348300230129 /* AWCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F802415C0348300230129 /* AWCommon.m */; };
+		751F803115C038C100230129 /* AWCoolCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F802C15C038C100230129 /* AWCoolCellBackground.m */; };
+		751F803215C038C100230129 /* AWCoolFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F802E15C038C100230129 /* AWCoolFooter.m */; };
+		751F803315C038C100230129 /* AWCoolHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F803015C038C100230129 /* AWCoolHeader.m */; };
+		751F803615C0398100230129 /* AWTodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F803515C0398100230129 /* AWTodoListViewController.m */; };
 		752C466115BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */; };
 		75CE97E315BB2CEB0043D3FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E215BB2CEB0043D3FC /* UIKit.framework */; };
 		75CE97E515BB2CEB0043D3FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E415BB2CEB0043D3FC /* Foundation.framework */; };
@@ -79,6 +83,14 @@
 		751F802015C0340000230129 /* AWCoolButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWCoolButton.m; sourceTree = "<group>"; };
 		751F802315C0348300230129 /* AWCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWCommon.h; sourceTree = "<group>"; };
 		751F802415C0348300230129 /* AWCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWCommon.m; sourceTree = "<group>"; };
+		751F802B15C038C100230129 /* AWCoolCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWCoolCellBackground.h; sourceTree = "<group>"; };
+		751F802C15C038C100230129 /* AWCoolCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWCoolCellBackground.m; sourceTree = "<group>"; };
+		751F802D15C038C100230129 /* AWCoolFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWCoolFooter.h; sourceTree = "<group>"; };
+		751F802E15C038C100230129 /* AWCoolFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWCoolFooter.m; sourceTree = "<group>"; };
+		751F802F15C038C100230129 /* AWCoolHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWCoolHeader.h; sourceTree = "<group>"; };
+		751F803015C038C100230129 /* AWCoolHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWCoolHeader.m; sourceTree = "<group>"; };
+		751F803415C0398100230129 /* AWTodoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWTodoListViewController.h; path = ViewControllers/AWTodoListViewController.h; sourceTree = "<group>"; };
+		751F803515C0398100230129 /* AWTodoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWTodoListViewController.m; path = ViewControllers/AWTodoListViewController.m; sourceTree = "<group>"; };
 		752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManager.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.h; sourceTree = SOURCE_ROOT; };
 		752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWMarkItDoneAPIManager.m; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.m; sourceTree = SOURCE_ROOT; };
 		752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManagerDelegate.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManagerDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -148,14 +160,27 @@
 			path = AWCommon;
 			sourceTree = SOURCE_ROOT;
 		};
-		752C465E15BDC528002FFCA2 /* MarkItDoneAPIManager */ = {
+		751F802A15C038C100230129 /* AWCoolTable */ = {
+			isa = PBXGroup;
+			children = (
+				751F802B15C038C100230129 /* AWCoolCellBackground.h */,
+				751F802C15C038C100230129 /* AWCoolCellBackground.m */,
+				751F802D15C038C100230129 /* AWCoolFooter.h */,
+				751F802E15C038C100230129 /* AWCoolFooter.m */,
+				751F802F15C038C100230129 /* AWCoolHeader.h */,
+				751F803015C038C100230129 /* AWCoolHeader.m */,
+			);
+			path = AWCoolTable;
+			sourceTree = SOURCE_ROOT;
+		};
+		752C465E15BDC528002FFCA2 /* AWMarkItDoneAPIManager */ = {
 			isa = PBXGroup;
 			children = (
 				752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */,
 				752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */,
 				752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */,
 			);
-			name = MarkItDoneAPIManager;
+			name = AWMarkItDoneAPIManager;
 			sourceTree = "<group>";
 		};
 		75CE97D315BB2CEA0043D3FC = {
@@ -198,8 +223,9 @@
 			children = (
 				751F802215C0348300230129 /* AWCommon */,
 				751F801E15C0340000230129 /* AWCoolButton */,
+				751F802A15C038C100230129 /* AWCoolTable */,
 				75E0639715BF250900D9D625 /* AWKeychainWrapper */,
-				752C465E15BDC528002FFCA2 /* MarkItDoneAPIManager */,
+				752C465E15BDC528002FFCA2 /* AWMarkItDoneAPIManager */,
 				75E0638815BF234700D9D625 /* ViewControllers */,
 				75CE97F115BB2CEB0043D3FC /* AWAppDelegate.h */,
 				75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */,
@@ -238,6 +264,8 @@
 			children = (
 				75E0638915BF238800D9D625 /* AWInitialViewController.h */,
 				75E0638A15BF238800D9D625 /* AWInitialViewController.m */,
+				751F803415C0398100230129 /* AWTodoListViewController.h */,
+				751F803515C0398100230129 /* AWTodoListViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -366,6 +394,10 @@
 				75E0639A15BF250900D9D625 /* AWKeychainWrapper.m in Sources */,
 				751F802115C0340000230129 /* AWCoolButton.m in Sources */,
 				751F802515C0348300230129 /* AWCommon.m in Sources */,
+				751F803115C038C100230129 /* AWCoolCellBackground.m in Sources */,
+				751F803215C038C100230129 /* AWCoolFooter.m in Sources */,
+				751F803315C038C100230129 /* AWCoolHeader.m in Sources */,
+				751F803615C0398100230129 /* AWTodoListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

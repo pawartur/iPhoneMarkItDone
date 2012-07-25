@@ -57,6 +57,7 @@ NSString * const kLoginActionName = @"Login";
     [self setActionButton:nil];
     [self setUsernameTextField:nil];
     [self setPasswordTextField:nil];
+    [self setApiManager:nil];
     [super viewDidUnload];
 }
 
