@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		751F801315BFEC3400230129 /* AWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F801215BFEC3400230129 /* AWLoginViewController.m */; };
+		752C466115BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */; };
 		75CE97E315BB2CEB0043D3FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E215BB2CEB0043D3FC /* UIKit.framework */; };
 		75CE97E515BB2CEB0043D3FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E415BB2CEB0043D3FC /* Foundation.framework */; };
 		75CE97E715BB2CEB0043D3FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E615BB2CEB0043D3FC /* CoreGraphics.framework */; };
@@ -14,8 +16,6 @@
 		75CE97EF15BB2CEB0043D3FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CE97EE15BB2CEB0043D3FC /* main.m */; };
 		75CE97F315BB2CEB0043D3FC /* AWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */; };
 		75CE97F615BB2CEB0043D3FC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75CE97F415BB2CEB0043D3FC /* MainStoryboard.storyboard */; };
-		75CE97F915BB2CEB0043D3FC /* AWMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CE97F815BB2CEB0043D3FC /* AWMasterViewController.m */; };
-		75CE97FC15BB2CEB0043D3FC /* AWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CE97FB15BB2CEB0043D3FC /* AWDetailViewController.m */; };
 		75CE981915BB2EBB0043D3FC /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE980E15BB2DCF0043D3FC /* libRestKit.a */; };
 		75CE981B15BB2ECC0043D3FC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE981A15BB2ECC0043D3FC /* CFNetwork.framework */; };
 		75CE981D15BB2ED80043D3FC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE981C15BB2ED80043D3FC /* MobileCoreServices.framework */; };
@@ -24,6 +24,8 @@
 		75CE982315BB2EF70043D3FC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE982215BB2EF70043D3FC /* QuartzCore.framework */; };
 		75CE982515BB2F070043D3FC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE982415BB2F070043D3FC /* libxml2.dylib */; };
 		75CE982715BB2F460043D3FC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE982615BB2F460043D3FC /* CoreData.framework */; };
+		75E0638B15BF238800D9D625 /* AWInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0638A15BF238800D9D625 /* AWInitialViewController.m */; };
+		75E0639A15BF250900D9D625 /* AWKeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0639915BF250900D9D625 /* AWKeychainWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		751F801115BFEC3400230129 /* AWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWLoginViewController.h; path = ViewControllers/AWLoginViewController.h; sourceTree = "<group>"; };
+		751F801215BFEC3400230129 /* AWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWLoginViewController.m; path = ViewControllers/AWLoginViewController.m; sourceTree = "<group>"; };
+		752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManager.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.h; sourceTree = SOURCE_ROOT; };
+		752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWMarkItDoneAPIManager.m; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.m; sourceTree = SOURCE_ROOT; };
+		752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManagerDelegate.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManagerDelegate.h; sourceTree = SOURCE_ROOT; };
 		75CE97DE15BB2CEB0043D3FC /* iPhoneMarkItDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneMarkItDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75CE97E215BB2CEB0043D3FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		75CE97E415BB2CEB0043D3FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,10 +90,6 @@
 		75CE97F115BB2CEB0043D3FC /* AWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWAppDelegate.h; sourceTree = "<group>"; };
 		75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWAppDelegate.m; sourceTree = "<group>"; };
 		75CE97F515BB2CEB0043D3FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		75CE97F715BB2CEB0043D3FC /* AWMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWMasterViewController.h; sourceTree = "<group>"; };
-		75CE97F815BB2CEB0043D3FC /* AWMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWMasterViewController.m; sourceTree = "<group>"; };
-		75CE97FA15BB2CEB0043D3FC /* AWDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWDetailViewController.h; sourceTree = "<group>"; };
-		75CE97FB15BB2CEB0043D3FC /* AWDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWDetailViewController.m; sourceTree = "<group>"; };
 		75CE980215BB2DCF0043D3FC /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		75CE981A15BB2ECC0043D3FC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		75CE981C15BB2ED80043D3FC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -95,6 +98,11 @@
 		75CE982215BB2EF70043D3FC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		75CE982415BB2F070043D3FC /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		75CE982615BB2F460043D3FC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		75E0638915BF238800D9D625 /* AWInitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWInitialViewController.h; path = ViewControllers/AWInitialViewController.h; sourceTree = "<group>"; };
+		75E0638A15BF238800D9D625 /* AWInitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWInitialViewController.m; path = ViewControllers/AWInitialViewController.m; sourceTree = "<group>"; };
+		75E0639415BF24CC00D9D625 /* AWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWConstants.h; sourceTree = "<group>"; };
+		75E0639815BF250900D9D625 /* AWKeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWKeychainWrapper.h; sourceTree = "<group>"; };
+		75E0639915BF250900D9D625 /* AWKeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWKeychainWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		752C465E15BDC528002FFCA2 /* MarkItDoneAPIManager */ = {
+			isa = PBXGroup;
+			children = (
+				752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */,
+				752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */,
+				752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */,
+			);
+			name = MarkItDoneAPIManager;
+			sourceTree = "<group>";
+		};
 		75CE97D315BB2CEA0043D3FC = {
 			isa = PBXGroup;
 			children = (
@@ -157,14 +175,14 @@
 		75CE97E815BB2CEB0043D3FC /* iPhoneMarkItDone */ = {
 			isa = PBXGroup;
 			children = (
+				75E0638815BF234700D9D625 /* ViewControllers */,
+				752C465E15BDC528002FFCA2 /* MarkItDoneAPIManager */,
+				75E0639715BF250900D9D625 /* AWKeychainWrapper */,
 				75CE97F115BB2CEB0043D3FC /* AWAppDelegate.h */,
 				75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */,
 				75CE97F415BB2CEB0043D3FC /* MainStoryboard.storyboard */,
-				75CE97F715BB2CEB0043D3FC /* AWMasterViewController.h */,
-				75CE97F815BB2CEB0043D3FC /* AWMasterViewController.m */,
-				75CE97FA15BB2CEB0043D3FC /* AWDetailViewController.h */,
-				75CE97FB15BB2CEB0043D3FC /* AWDetailViewController.m */,
 				75CE97E915BB2CEB0043D3FC /* Supporting Files */,
+				75E0639415BF24CC00D9D625 /* AWConstants.h */,
 			);
 			path = iPhoneMarkItDone;
 			sourceTree = "<group>";
@@ -191,6 +209,26 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		75E0638815BF234700D9D625 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				75E0638915BF238800D9D625 /* AWInitialViewController.h */,
+				75E0638A15BF238800D9D625 /* AWInitialViewController.m */,
+				751F801115BFEC3400230129 /* AWLoginViewController.h */,
+				751F801215BFEC3400230129 /* AWLoginViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		75E0639715BF250900D9D625 /* AWKeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				75E0639815BF250900D9D625 /* AWKeychainWrapper.h */,
+				75E0639915BF250900D9D625 /* AWKeychainWrapper.m */,
+			);
+			path = AWKeychainWrapper;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -302,8 +340,10 @@
 			files = (
 				75CE97EF15BB2CEB0043D3FC /* main.m in Sources */,
 				75CE97F315BB2CEB0043D3FC /* AWAppDelegate.m in Sources */,
-				75CE97F915BB2CEB0043D3FC /* AWMasterViewController.m in Sources */,
-				75CE97FC15BB2CEB0043D3FC /* AWDetailViewController.m in Sources */,
+				752C466115BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m in Sources */,
+				75E0638B15BF238800D9D625 /* AWInitialViewController.m in Sources */,
+				75E0639A15BF250900D9D625 /* AWKeychainWrapper.m in Sources */,
+				751F801315BFEC3400230129 /* AWLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +473,7 @@
 				75CE980115BB2CEB0043D3FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
