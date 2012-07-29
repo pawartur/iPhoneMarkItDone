@@ -32,6 +32,8 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
         manager = [[AWMarkItDoneAPIManager alloc] init];
         
         RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:kBaseAPIURLString];
+        RKManagedObjectStore* objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"MarkItDone.sqlite"];
+        objectManager.objectStore = objectStore;
         
         //[objectManager.mappingProvider setMapping:[AWTumblrAPIv2Response mapping] forKeyPath:@""];
         //[objectManager.mappingProvider setErrorMapping:[AWTumblrAPIv2FlatResponse mapping]];

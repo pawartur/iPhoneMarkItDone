@@ -14,6 +14,11 @@
 		751F803315C038C100230129 /* AWCoolHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F803015C038C100230129 /* AWCoolHeader.m */; };
 		751F803615C0398100230129 /* AWTodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F803515C0398100230129 /* AWTodoListViewController.m */; };
 		752C466115BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */; };
+		75782E1D15C556D0009DE488 /* MarkItDone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75782E1B15C556D0009DE488 /* MarkItDone.xcdatamodeld */; };
+		75782E3915C55CA1009DE488 /* ToDoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E3815C55CA1009DE488 /* ToDoList.m */; };
+		75782E3C15C55CA1009DE488 /* ToDoAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E3B15C55CA1009DE488 /* ToDoAlert.m */; };
+		75782E3F15C55CA1009DE488 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E3E15C55CA1009DE488 /* ToDo.m */; };
+		75782E4215C55CA1009DE488 /* ToDoContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E4115C55CA1009DE488 /* ToDoContext.m */; };
 		75CE97E315BB2CEB0043D3FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E215BB2CEB0043D3FC /* UIKit.framework */; };
 		75CE97E515BB2CEB0043D3FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E415BB2CEB0043D3FC /* Foundation.framework */; };
 		75CE97E715BB2CEB0043D3FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E615BB2CEB0043D3FC /* CoreGraphics.framework */; };
@@ -94,6 +99,15 @@
 		752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManager.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.h; sourceTree = SOURCE_ROOT; };
 		752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWMarkItDoneAPIManager.m; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.m; sourceTree = SOURCE_ROOT; };
 		752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManagerDelegate.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManagerDelegate.h; sourceTree = SOURCE_ROOT; };
+		75782E1C15C556D0009DE488 /* MarkItDone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarkItDone.xcdatamodel; sourceTree = "<group>"; };
+		75782E3715C55CA1009DE488 /* ToDoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoList.h; sourceTree = "<group>"; };
+		75782E3815C55CA1009DE488 /* ToDoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoList.m; sourceTree = "<group>"; };
+		75782E3A15C55CA1009DE488 /* ToDoAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoAlert.h; sourceTree = "<group>"; };
+		75782E3B15C55CA1009DE488 /* ToDoAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoAlert.m; sourceTree = "<group>"; };
+		75782E3D15C55CA1009DE488 /* ToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDo.h; sourceTree = "<group>"; };
+		75782E3E15C55CA1009DE488 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
+		75782E4015C55CA1009DE488 /* ToDoContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoContext.h; sourceTree = "<group>"; };
+		75782E4115C55CA1009DE488 /* ToDoContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoContext.m; sourceTree = "<group>"; };
 		75CE97DE15BB2CEB0043D3FC /* iPhoneMarkItDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneMarkItDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75CE97E215BB2CEB0043D3FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		75CE97E415BB2CEB0043D3FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -183,6 +197,21 @@
 			name = AWMarkItDoneAPIManager;
 			sourceTree = "<group>";
 		};
+		75782E3615C55C4E009DE488 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				75782E3D15C55CA1009DE488 /* ToDo.h */,
+				75782E3E15C55CA1009DE488 /* ToDo.m */,
+				75782E4015C55CA1009DE488 /* ToDoContext.h */,
+				75782E4115C55CA1009DE488 /* ToDoContext.m */,
+				75782E3A15C55CA1009DE488 /* ToDoAlert.h */,
+				75782E3B15C55CA1009DE488 /* ToDoAlert.m */,
+				75782E3715C55CA1009DE488 /* ToDoList.h */,
+				75782E3815C55CA1009DE488 /* ToDoList.m */,
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
 		75CE97D315BB2CEA0043D3FC = {
 			isa = PBXGroup;
 			children = (
@@ -226,12 +255,14 @@
 				751F802A15C038C100230129 /* AWCoolTable */,
 				75E0639715BF250900D9D625 /* AWKeychainWrapper */,
 				752C465E15BDC528002FFCA2 /* AWMarkItDoneAPIManager */,
+				75782E3615C55C4E009DE488 /* ManagedObjects */,
 				75E0638815BF234700D9D625 /* ViewControllers */,
+				75E0639415BF24CC00D9D625 /* AWConstants.h */,
 				75CE97F115BB2CEB0043D3FC /* AWAppDelegate.h */,
 				75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */,
 				75CE97F415BB2CEB0043D3FC /* MainStoryboard.storyboard */,
+				75782E1B15C556D0009DE488 /* MarkItDone.xcdatamodeld */,
 				75CE97E915BB2CEB0043D3FC /* Supporting Files */,
-				75E0639415BF24CC00D9D625 /* AWConstants.h */,
 			);
 			path = iPhoneMarkItDone;
 			sourceTree = "<group>";
@@ -398,6 +429,11 @@
 				751F803215C038C100230129 /* AWCoolFooter.m in Sources */,
 				751F803315C038C100230129 /* AWCoolHeader.m in Sources */,
 				751F803615C0398100230129 /* AWTodoListViewController.m in Sources */,
+				75782E1D15C556D0009DE488 /* MarkItDone.xcdatamodeld in Sources */,
+				75782E3915C55CA1009DE488 /* ToDoList.m in Sources */,
+				75782E3C15C55CA1009DE488 /* ToDoAlert.m in Sources */,
+				75782E3F15C55CA1009DE488 /* ToDo.m in Sources */,
+				75782E4215C55CA1009DE488 /* ToDoContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +566,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		75782E1B15C556D0009DE488 /* MarkItDone.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				75782E1C15C556D0009DE488 /* MarkItDone.xcdatamodel */,
+			);
+			currentVersion = 75782E1C15C556D0009DE488 /* MarkItDone.xcdatamodel */;
+			path = MarkItDone.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 75CE97D515BB2CEA0043D3FC /* Project object */;
 }
