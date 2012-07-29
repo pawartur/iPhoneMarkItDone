@@ -8,26 +8,30 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="toDoId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="toDoAlerts" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ToDoAlert" inverseName="toDo" inverseEntity="ToDoAlert" syncable="YES"/>
         <relationship name="toDoContext" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ToDoContext" inverseName="toDos" inverseEntity="ToDoContext" syncable="YES"/>
         <relationship name="toDoList" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ToDoList" inverseName="toDos" inverseEntity="ToDoList" syncable="YES"/>
     </entity>
     <entity name="ToDoAlert" representedClassName="ToDoAlert" syncable="YES">
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="toDoAlertId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="toDo" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ToDo" inverseName="toDoAlerts" inverseEntity="ToDo" syncable="YES"/>
     </entity>
     <entity name="ToDoContext" representedClassName="ToDoContext" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDoContextId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="toDos" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ToDo" inverseName="toDoContext" inverseEntity="ToDo" syncable="YES"/>
     </entity>
     <entity name="ToDoList" representedClassName="ToDoList" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDoListId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="toDos" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ToDo" inverseName="toDoList" inverseEntity="ToDo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ToDoList" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ToDoContext" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ToDo" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ToDoAlert" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ToDoList" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="ToDoContext" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="ToDo" positionX="160" positionY="192" width="128" height="210"/>
+        <element name="ToDoAlert" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

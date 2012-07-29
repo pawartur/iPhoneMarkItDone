@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <RestKit/RestKit.h>
 #import "AWMarkItDoneAPIManagerDelegate.h"
 
 @interface AWMarkItDoneAPIManager : NSObject
@@ -17,8 +16,15 @@
 @property(nonatomic, strong) NSString *username;
 @property(nonatomic, strong) NSString *password;
 
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
 +(AWMarkItDoneAPIManager *)sharedManager;
 
 -(void)authenticate;
+
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
 
 @end

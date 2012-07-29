@@ -8,6 +8,7 @@
 
 #import "ToDo.h"
 #import "ToDoAlert.h"
+#import "ToDoContext.h"
 #import "ToDoList.h"
 
 
@@ -20,6 +21,7 @@
 @dynamic dueTime;
 @dynamic completionTime;
 @dynamic priority;
+@dynamic toDoId;
 @dynamic toDoList;
 @dynamic toDoContext;
 @dynamic toDoAlerts;

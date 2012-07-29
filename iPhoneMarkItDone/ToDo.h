@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class ToDoAlert, ToDoList;
+@class ToDoAlert, ToDoContext, ToDoList;
 
 @interface ToDo : NSManagedObject
 
@@ -20,8 +20,9 @@
 @property (nonatomic, retain) NSDate * dueTime;
 @property (nonatomic, retain) NSDate * completionTime;
 @property (nonatomic, retain) NSNumber * priority;
+@property (nonatomic, retain) NSNumber * toDoId;
 @property (nonatomic, retain) ToDoList *toDoList;
-@property (nonatomic, retain) NSManagedObject *toDoContext;
+@property (nonatomic, retain) ToDoContext *toDoContext;
 @property (nonatomic, retain) NSOrderedSet *toDoAlerts;
 @end
 

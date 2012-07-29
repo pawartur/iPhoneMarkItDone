@@ -7,11 +7,13 @@
 //
 
 #import "ToDoAlert.h"
+#import "ToDo.h"
 
 
 @implementation ToDoAlert
 
 @dynamic time;
+@dynamic toDoAlertId;
 @dynamic toDo;
 
 @end

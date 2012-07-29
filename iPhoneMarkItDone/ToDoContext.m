@@ -13,6 +13,7 @@
 @implementation ToDoContext
 
 @dynamic name;
+@dynamic toDoContextId;
 @dynamic toDos;
 
 @end

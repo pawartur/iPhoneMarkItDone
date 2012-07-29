@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class ToDo;
 
 @interface ToDoAlert : NSManagedObject
 
 @property (nonatomic, retain) NSDate * time;
-@property (nonatomic, retain) NSManagedObject *toDo;
+@property (nonatomic, retain) NSNumber * toDoAlertId;
+@property (nonatomic, retain) ToDo *toDo;
 
 @end
