@@ -26,4 +26,23 @@
 @dynamic toDoContext;
 @dynamic toDoAlerts;
 
++(RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore{
+    RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForClass:self inManagedObjectStore:objectStore];
+    
+    [mapping mapKeyPath:@"id" toAttribute:@"toDoId"];
+    [mapping mapKeyPath:@"name" toAttribute:@"name"];
+    [mapping mapKeyPath:@"creation_time" toAttribute:@"creationTime"];
+    [mapping mapKeyPath:@"last_update_time" toAttribute:@"lastUpdateTime"];
+    [mapping mapKeyPath:@"due_time" toAttribute:@"dueTime"];
+    [mapping mapKeyPath:@"completion_time" toAttribute:@"completionTime"];
+    [mapping mapKeyPath:@"priority" toAttribute:@"priority"];
+    
+    [mapping mapKeyPath:@"toto_list" toRelationship:@"toDoList" withMapping:[ToDoList mappingInManagedObjectStore:objectStore]];
+    [mapping mapKeyPath:@"todo_context" toRelationship:@"toDoContext" withMapping:[ToDoContext mappingInManagedObjectStore:objectStore]];
+    [mapping mapKeyPath:@"todo_alerts" toRelationship:@"toDoAlerts" withMapping:[ToDoAlert mappingInManagedObjectStore:objectStore]];
+    
+    mapping.primaryKeyAttribute = @"toDoId";
+    return mapping;
+}
+
 @end

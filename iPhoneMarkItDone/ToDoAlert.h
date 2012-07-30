@@ -17,4 +17,6 @@
 @property (nonatomic, retain) NSNumber * toDoAlertId;
 @property (nonatomic, retain) ToDo *toDo;
 
++(RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore;
+
 @end

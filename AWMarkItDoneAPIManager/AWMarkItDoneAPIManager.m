@@ -7,6 +7,10 @@
 //
 
 #import "AWMarkItDoneAPIManager.h"
+#import "ToDo.h"
+#import "ToDoList.h"
+#import "ToDoContext.h"
+#import "ToDoAlert.h"
 
 NSString * const kBaseAPIURLString = @"http://markitdone.dev:8000/";
 
@@ -32,13 +36,15 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     dispatch_once(&onceToken, ^{
         RKLogConfigureByName("RestKit/Network*", RKLogLevelWarning);
         RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelWarning);
+        
         manager = [[AWMarkItDoneAPIManager alloc] init];
         
         RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:kBaseAPIURLString];
         objectManager.objectStore = manager.managedObjectContext.managedObjectStore;
-        
-        //[objectManager.mappingProvider setMapping:[AWTumblrAPIv2Response mapping] forKeyPath:@""];
-        //[objectManager.mappingProvider setErrorMapping:[AWTumblrAPIv2FlatResponse mapping]];
+        //[objectManager.mappingProvider setMapping:[ToDoList mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/lists"];
+        //[objectManager.mappingProvider setMapping:[ToDoContext mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/contexts"];
+        //[objectManager.mappingProvider setMapping:[ToDoAlert mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/:toDoId/alerts"];
+        //[objectManager.mappingProvider setMapping:[ToDo mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/"];
         
         [RKObjectManager setSharedManager:objectManager];
         manager.objectManager = objectManager;
@@ -103,9 +109,11 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    RKManagedObjectStore *managedObjectStore = [RKManagedObjectStore objectStoreWithStoreFilename:@"MarkItDone.sqlite"];
     if (coordinator != nil) {
         _managedObjectContext = [[NSManagedObjectContext alloc] init];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+        [_managedObjectContext setManagedObjectStore:managedObjectStore];
     }
     return _managedObjectContext;
 }

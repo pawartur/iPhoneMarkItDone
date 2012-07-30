@@ -16,6 +16,9 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * toDoListId;
 @property (nonatomic, retain) NSOrderedSet *toDos;
+
++(RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore;
+
 @end
 
 @interface ToDoList (CoreDataGeneratedAccessors)

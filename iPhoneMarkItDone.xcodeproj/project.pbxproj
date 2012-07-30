@@ -14,6 +14,7 @@
 		751F803315C038C100230129 /* AWCoolHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F803015C038C100230129 /* AWCoolHeader.m */; };
 		751F803615C0398100230129 /* AWTodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F803515C0398100230129 /* AWTodoListViewController.m */; };
 		752C466115BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */; };
+		7554443015C72A1E00CEEF4A /* AWToDoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7554442F15C72A1E00CEEF4A /* AWToDoCell.m */; };
 		75782E1D15C556D0009DE488 /* MarkItDone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75782E1B15C556D0009DE488 /* MarkItDone.xcdatamodeld */; };
 		75782E4515C5601F009DE488 /* ToDoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E4415C5601F009DE488 /* ToDoList.m */; };
 		75782E4815C5601F009DE488 /* ToDoContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E4715C5601F009DE488 /* ToDoContext.m */; };
@@ -99,6 +100,8 @@
 		752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManager.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.h; sourceTree = SOURCE_ROOT; };
 		752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWMarkItDoneAPIManager.m; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.m; sourceTree = SOURCE_ROOT; };
 		752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManagerDelegate.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManagerDelegate.h; sourceTree = SOURCE_ROOT; };
+		7554442E15C72A1E00CEEF4A /* AWToDoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWToDoCell.h; sourceTree = "<group>"; };
+		7554442F15C72A1E00CEEF4A /* AWToDoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWToDoCell.m; sourceTree = "<group>"; };
 		75782E1C15C556D0009DE488 /* MarkItDone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarkItDone.xcdatamodel; sourceTree = "<group>"; };
 		75782E4315C5601F009DE488 /* ToDoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoList.h; sourceTree = "<group>"; };
 		75782E4415C5601F009DE488 /* ToDoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoList.m; sourceTree = "<group>"; };
@@ -197,7 +200,16 @@
 			name = AWMarkItDoneAPIManager;
 			sourceTree = "<group>";
 		};
-		75782E3615C55C4E009DE488 /* ManagedObjects */ = {
+		7554442D15C729D100CEEF4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7554442E15C72A1E00CEEF4A /* AWToDoCell.h */,
+				7554442F15C72A1E00CEEF4A /* AWToDoCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		75782E3615C55C4E009DE488 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				75782E4C15C56020009DE488 /* ToDo.h */,
@@ -209,7 +221,7 @@
 				75782E4315C5601F009DE488 /* ToDoList.h */,
 				75782E4415C5601F009DE488 /* ToDoList.m */,
 			);
-			name = ManagedObjects;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		75CE97D315BB2CEA0043D3FC = {
@@ -255,8 +267,9 @@
 				751F802A15C038C100230129 /* AWCoolTable */,
 				75E0639715BF250900D9D625 /* AWKeychainWrapper */,
 				752C465E15BDC528002FFCA2 /* AWMarkItDoneAPIManager */,
-				75782E3615C55C4E009DE488 /* ManagedObjects */,
+				75782E3615C55C4E009DE488 /* Models */,
 				75E0638815BF234700D9D625 /* ViewControllers */,
+				7554442D15C729D100CEEF4A /* Views */,
 				75E0639415BF24CC00D9D625 /* AWConstants.h */,
 				75CE97F115BB2CEB0043D3FC /* AWAppDelegate.h */,
 				75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */,
@@ -434,6 +447,7 @@
 				75782E4815C5601F009DE488 /* ToDoContext.m in Sources */,
 				75782E4B15C56020009DE488 /* ToDoAlert.m in Sources */,
 				75782E4E15C56020009DE488 /* ToDo.m in Sources */,
+				7554443015C72A1E00CEEF4A /* AWToDoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

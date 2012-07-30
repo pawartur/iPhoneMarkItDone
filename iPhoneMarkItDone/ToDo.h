@@ -24,6 +24,9 @@
 @property (nonatomic, retain) ToDoList *toDoList;
 @property (nonatomic, retain) ToDoContext *toDoContext;
 @property (nonatomic, retain) NSOrderedSet *toDoAlerts;
+
++(RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore;
+
 @end
 
 @interface ToDo (CoreDataGeneratedAccessors)
