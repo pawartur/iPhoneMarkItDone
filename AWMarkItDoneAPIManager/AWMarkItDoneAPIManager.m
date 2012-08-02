@@ -35,7 +35,7 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     static AWMarkItDoneAPIManager *manager = nil;
     dispatch_once(&onceToken, ^{
         RKLogConfigureByName("RestKit/Network*", RKLogLevelWarning);
-        RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelWarning);
+        RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
         
         manager = [[AWMarkItDoneAPIManager alloc] init];
         
@@ -44,7 +44,11 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
         //[objectManager.mappingProvider setMapping:[ToDoList mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/lists"];
         //[objectManager.mappingProvider setMapping:[ToDoContext mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/contexts"];
         //[objectManager.mappingProvider setMapping:[ToDoAlert mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/:toDoId/alerts"];
-        //[objectManager.mappingProvider setMapping:[ToDo mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/"];
+        [objectManager.mappingProvider setObjectMapping:[ToDo mappingInManagedObjectStore:objectManager.objectStore] forResourcePathPattern:@"/todos" withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
+            NSFetchRequest *fetchRequest = [ToDo fetchRequest];
+            fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"lastUpdateTime" ascending:NO]];
+            return fetchRequest;
+        }];
         
         [RKObjectManager setSharedManager:objectManager];
         manager.objectManager = objectManager;

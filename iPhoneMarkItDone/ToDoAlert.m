@@ -22,7 +22,7 @@
     [mapping mapKeyPath:@"id" toAttribute:@"toDoAlertId"];
     [mapping mapKeyPath:@"time" toAttribute:@"time"];
     
-    [mapping mapKeyPath:@"todo_id" toRelationship:@"toDo" withMapping:[ToDo mappingInManagedObjectStore:objectStore]];
+    //[mapping mapKeyPath:@"todo_id" toRelationship:@"toDo" withMapping:[ToDo mappingInManagedObjectStore:objectStore]];
     
     return mapping;
 }

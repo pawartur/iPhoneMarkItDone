@@ -37,9 +37,11 @@
     [mapping mapKeyPath:@"completion_time" toAttribute:@"completionTime"];
     [mapping mapKeyPath:@"priority" toAttribute:@"priority"];
     
-    [mapping mapKeyPath:@"toto_list" toRelationship:@"toDoList" withMapping:[ToDoList mappingInManagedObjectStore:objectStore]];
+    [mapping mapKeyPath:@"todo_list" toRelationship:@"toDoList" withMapping:[ToDoList mappingInManagedObjectStore:objectStore]];
     [mapping mapKeyPath:@"todo_context" toRelationship:@"toDoContext" withMapping:[ToDoContext mappingInManagedObjectStore:objectStore]];
     [mapping mapKeyPath:@"todo_alerts" toRelationship:@"toDoAlerts" withMapping:[ToDoAlert mappingInManagedObjectStore:objectStore]];
+    
+    mapping.rootKeyPath = @"object_list";
     
     mapping.primaryKeyAttribute = @"toDoId";
     return mapping;

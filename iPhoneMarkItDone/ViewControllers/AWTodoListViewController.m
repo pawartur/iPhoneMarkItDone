@@ -26,34 +26,26 @@
 {
     [super viewDidLoad];
     self.title = @"ToDos";
-    /**
     AWMarkItDoneAPIManager *apiManager = [AWMarkItDoneAPIManager sharedManager];
     self.tableController = [[apiManager objectManager] fetchedResultsTableControllerForTableViewController:self];
     self.tableController.autoRefreshFromNetwork = YES;
     self.tableController.pullToRefreshEnabled = YES;
     self.tableController.resourcePath = @"/todos";
     self.tableController.variableHeightRows = NO;
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO];
-    self.tableController.sortDescriptors = [NSArray arrayWithObject:descriptor];
     
-    NSBundle *restKitResources = [NSBundle restKitResourcesBundle];
-    UIImage *arrowImage = [restKitResources imageWithContentsOfResource:@"blueArrow" withExtension:@"png"];
     [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
     [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
-    [[RKRefreshTriggerView appearance] setArrowImage:arrowImage];
     
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-    cellMapping.cellClassName = @"ToDoCell";
+    cellMapping.cellClassName = @"AWToDoCell";
     cellMapping.reuseIdentifier = @"ToDoCell";
     [cellMapping mapKeyPath:@"name" toAttribute:@"nameLabel.text"];
-    
     [self.tableController mapObjectsWithClass:[ToDo class] toTableCellsWithMapping:cellMapping];
-     **/
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //[self.tableController loadTable];
+    [self.tableController loadTable];
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
