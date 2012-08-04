@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AWFetchedResultsTableController.h"
 #import "AWMarkItDoneAPIManagerDelegate.h"
 #import "AWToDoListViewController.h"
 
@@ -25,7 +26,7 @@
 
 -(void)authenticate;
 
--(RKFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController;
+-(AWFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

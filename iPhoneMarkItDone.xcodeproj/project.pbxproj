@@ -37,6 +37,7 @@
 		75CE982715BB2F460043D3FC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE982615BB2F460043D3FC /* CoreData.framework */; };
 		75E0638B15BF238800D9D625 /* AWInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0638A15BF238800D9D625 /* AWInitialViewController.m */; };
 		75E0639A15BF250900D9D625 /* AWKeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0639915BF250900D9D625 /* AWKeychainWrapper.m */; };
+		75E0D87815CDC79C0007646D /* AWFetchedResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0D87715CDC79C0007646D /* AWFetchedResultsTableController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,8 @@
 		75E0639415BF24CC00D9D625 /* AWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWConstants.h; sourceTree = "<group>"; };
 		75E0639815BF250900D9D625 /* AWKeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWKeychainWrapper.h; sourceTree = "<group>"; };
 		75E0639915BF250900D9D625 /* AWKeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWKeychainWrapper.m; sourceTree = "<group>"; };
+		75E0D87615CDC79C0007646D /* AWFetchedResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWFetchedResultsTableController.h; path = AWMarkItDoneAPIManager/AWFetchedResultsTableController.h; sourceTree = SOURCE_ROOT; };
+		75E0D87715CDC79C0007646D /* AWFetchedResultsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWFetchedResultsTableController.m; path = AWMarkItDoneAPIManager/AWFetchedResultsTableController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 		752C465E15BDC528002FFCA2 /* AWMarkItDoneAPIManager */ = {
 			isa = PBXGroup;
 			children = (
+				75E0D87615CDC79C0007646D /* AWFetchedResultsTableController.h */,
+				75E0D87715CDC79C0007646D /* AWFetchedResultsTableController.m */,
 				752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */,
 				752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */,
 				752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */,
@@ -448,6 +453,7 @@
 				75782E4B15C56020009DE488 /* ToDoAlert.m in Sources */,
 				75782E4E15C56020009DE488 /* ToDo.m in Sources */,
 				7554443015C72A1E00CEEF4A /* AWToDoCell.m in Sources */,
+				75E0D87815CDC79C0007646D /* AWFetchedResultsTableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

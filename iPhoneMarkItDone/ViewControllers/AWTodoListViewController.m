@@ -7,13 +7,14 @@
 //
 
 #import "AWMarkItDoneAPIManager.h"
+#import "AWFetchedResultsTableController.h"
 #import "AWTodoListViewController.h"
 #import "AWCoolFooter.h"
 #import "ToDo.h"
 
 @interface AWTodoListViewController ()
 
-@property (nonatomic, strong) RKFetchedResultsTableController *tableController;
+@property (nonatomic, strong) AWFetchedResultsTableController *tableController;
 
 @end
 
@@ -33,16 +34,5 @@
     [super viewWillAppear:animated];
     [self.tableController loadTable];
 }
-
-/**
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    AWCoolFooter *footer = [[AWCoolFooter alloc] init];
-    return footer;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 15;
-}
-**/
 
 @end

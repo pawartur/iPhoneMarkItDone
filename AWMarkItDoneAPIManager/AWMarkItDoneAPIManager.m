@@ -7,6 +7,7 @@
 //
 
 #import "AWMarkItDoneAPIManager.h"
+#import "AWFetchedResultsTableController.h"
 #import "AWCoolHeader.h"
 #import "ToDo.h"
 #import "ToDoList.h"
@@ -72,8 +73,9 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
                               withFetchRequestBlock:toDoFetchRequestBlock];
 }
 
--(RKFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController{
-    RKFetchedResultsTableController *frtc = [self.objectManager fetchedResultsTableControllerForTableViewController:viewController];
+-(AWFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController{
+    AWFetchedResultsTableController *frtc = [[AWFetchedResultsTableController alloc] initWithTableView:viewController.tableView viewController:viewController];
+    frtc.objectManager = self.objectManager;
     
     frtc.autoRefreshFromNetwork = YES;
     frtc.pullToRefreshEnabled = YES;
@@ -88,17 +90,6 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     cellMapping.reuseIdentifier = @"ToDoCell";
     [cellMapping mapKeyPath:@"name" toAttribute:@"nameLabel.text"];
     [frtc mapObjectsWithClass:[ToDo class] toTableCellsWithMapping:cellMapping];
-    
-    frtc.onViewForHeaderInSection = ^UIView *(NSUInteger sectionIndex, NSString *sectionTitle){
-        AWCoolHeader *header = [[AWCoolHeader alloc] init];
-        header.titleLabel.text = @"All";
-        header.lightColor = [UIColor colorWithRed:0.0/255.0 green:123.0/255.0 blue:204.0/255.0 alpha:1.0];
-        header.darkColor = [UIColor colorWithRed:0.0/255.0 green:123.0/255.0 blue:204.0/255.0 alpha:1.0];
-        return header;
-    };
-    
-    frtc.heightForHeaderInSection = 50;
-    
     
     return frtc;
 }
