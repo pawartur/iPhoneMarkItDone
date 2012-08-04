@@ -8,7 +8,6 @@
 
 #import "AWMarkItDoneAPIManager.h"
 #import "AWTodoListViewController.h"
-#import "AWCoolHeader.h"
 #import "AWCoolFooter.h"
 #import "ToDo.h"
 
@@ -27,20 +26,7 @@
     [super viewDidLoad];
     self.title = @"ToDos";
     AWMarkItDoneAPIManager *apiManager = [AWMarkItDoneAPIManager sharedManager];
-    self.tableController = [[apiManager objectManager] fetchedResultsTableControllerForTableViewController:self];
-    self.tableController.autoRefreshFromNetwork = YES;
-    self.tableController.pullToRefreshEnabled = YES;
-    self.tableController.resourcePath = @"/todos";
-    self.tableController.variableHeightRows = NO;
-    
-    [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
-    [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
-    
-    RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-    cellMapping.cellClassName = @"AWToDoCell";
-    cellMapping.reuseIdentifier = @"ToDoCell";
-    [cellMapping mapKeyPath:@"name" toAttribute:@"nameLabel.text"];
-    [self.tableController mapObjectsWithClass:[ToDo class] toTableCellsWithMapping:cellMapping];
+    self.tableController = [apiManager fetchedResultsTableControllerForToDoListViewController:self];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -48,18 +34,7 @@
     [self.tableController loadTable];
 }
 
-- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    AWCoolHeader *header = [[AWCoolHeader alloc] init];
-    header.titleLabel.text = @"All";
-    header.lightColor = [UIColor colorWithRed:0.0/255.0 green:123.0/255.0 blue:204.0/255.0 alpha:1.0];
-    header.darkColor = [UIColor colorWithRed:0.0/255.0 green:123.0/255.0 blue:204.0/255.0 alpha:1.0];
-    return header;
-}
-
--(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 50;
-}
-
+/**
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     AWCoolFooter *footer = [[AWCoolFooter alloc] init];
     return footer;
@@ -68,5 +43,6 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 15;
 }
+**/
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AWMarkItDoneAPIManager.h"
+#import "AWCoolHeader.h"
 #import "ToDo.h"
 #import "ToDoList.h"
 #import "ToDoContext.h"
@@ -15,6 +16,13 @@
 NSString * const kBaseAPIURLString = @"http://markitdone.dev:8000/";
 
 NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
+
+
+@interface AWMarkItDoneAPIManager ()
+
+-(void)setUpToDoMapping;
+
+@end
 
 
 @implementation AWMarkItDoneAPIManager
@@ -38,24 +46,62 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
         RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
         
         manager = [[AWMarkItDoneAPIManager alloc] init];
-        
-        RKObjectManager *objectManager = [RKObjectManager managerWithBaseURLString:kBaseAPIURLString];
-        objectManager.objectStore = manager.managedObjectContext.managedObjectStore;
-        //[objectManager.mappingProvider setMapping:[ToDoList mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/lists"];
-        //[objectManager.mappingProvider setMapping:[ToDoContext mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/contexts"];
-        //[objectManager.mappingProvider setMapping:[ToDoAlert mappingInManagedObjectStore:objectManager.objectStore] forKeyPath:@"todos/:toDoId/alerts"];
-        [objectManager.mappingProvider setObjectMapping:[ToDo mappingInManagedObjectStore:objectManager.objectStore] forResourcePathPattern:@"/todos" withFetchRequestBlock:^NSFetchRequest *(NSString *resourcePath) {
-            NSFetchRequest *fetchRequest = [ToDo fetchRequest];
-            fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"lastUpdateTime" ascending:NO]];
-            return fetchRequest;
-        }];
-        
-        [RKObjectManager setSharedManager:objectManager];
-        manager.objectManager = objectManager;
+        manager.objectManager = [RKObjectManager managerWithBaseURLString:kBaseAPIURLString];
+        [RKObjectManager setSharedManager:manager.objectManager];
+        manager.objectManager.objectStore = manager.managedObjectContext.managedObjectStore;
+    
+        [manager setUpToDoMapping];
     });
     return manager;
 }
 
+#pragma mark - Helpers
+
+-(void)setUpToDoMapping{
+    RKObjectMappingProviderFetchRequestBlock toDoFetchRequestBlock = ^NSFetchRequest*(NSString *resourcePath){
+        NSFetchRequest *fetchRequest = [ToDo fetchRequest];
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastUpdateTime" ascending:NO];
+        fetchRequest.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        return fetchRequest;
+    };
+    
+    RKObjectMapping *toDoMapping = [ToDo mappingInManagedObjectStore:self.objectManager.objectStore];
+    
+    [self.objectManager.mappingProvider setObjectMapping:toDoMapping
+                             forResourcePathPattern:@"/todos"
+                              withFetchRequestBlock:toDoFetchRequestBlock];
+}
+
+-(RKFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController{
+    RKFetchedResultsTableController *frtc = [self.objectManager fetchedResultsTableControllerForTableViewController:viewController];
+    
+    frtc.autoRefreshFromNetwork = YES;
+    frtc.pullToRefreshEnabled = YES;
+    frtc.resourcePath = @"/todos";
+    frtc.variableHeightRows = NO;
+    
+    [[RKRefreshTriggerView appearance] setTitleFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13]];
+    [[RKRefreshTriggerView appearance] setLastUpdatedFont:[UIFont fontWithName:@"HelveticaNeue" size:11]];
+    
+    RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
+    cellMapping.cellClassName = @"AWToDoCell";
+    cellMapping.reuseIdentifier = @"ToDoCell";
+    [cellMapping mapKeyPath:@"name" toAttribute:@"nameLabel.text"];
+    [frtc mapObjectsWithClass:[ToDo class] toTableCellsWithMapping:cellMapping];
+    
+    frtc.onViewForHeaderInSection = ^UIView *(NSUInteger sectionIndex, NSString *sectionTitle){
+        AWCoolHeader *header = [[AWCoolHeader alloc] init];
+        header.titleLabel.text = @"All";
+        header.lightColor = [UIColor colorWithRed:0.0/255.0 green:123.0/255.0 blue:204.0/255.0 alpha:1.0];
+        header.darkColor = [UIColor colorWithRed:0.0/255.0 green:123.0/255.0 blue:204.0/255.0 alpha:1.0];
+        return header;
+    };
+    
+    frtc.heightForHeaderInSection = 50;
+    
+    
+    return frtc;
+}
 
 #pragma mark - Setters
 

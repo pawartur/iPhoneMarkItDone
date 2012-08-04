@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AWMarkItDoneAPIManagerDelegate.h"
+#import "AWToDoListViewController.h"
 
 @interface AWMarkItDoneAPIManager : NSObject
 
@@ -23,6 +24,8 @@
 +(AWMarkItDoneAPIManager *)sharedManager;
 
 -(void)authenticate;
+
+-(RKFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
