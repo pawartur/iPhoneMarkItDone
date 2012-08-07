@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AWCoolFooter : UIView
+@interface AWCoolFooter : UIView{
+    CGRect _coloredBoxRect;
+    CGRect _paperRect;
+}
+
+@property (retain) UIColor *lightColor;
+@property (retain) UIColor *darkColor;
 
 @end

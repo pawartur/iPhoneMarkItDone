@@ -6,9 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "MFSideMenu.h"
 #import "AWMarkItDoneAPIManager.h"
 #import "AWFetchedResultsTableController.h"
 #import "AWTodoListViewController.h"
+#import "AWToDoFiltersViewController.h"
 #import "AWCoolFooter.h"
 #import "ToDo.h"
 
@@ -28,6 +30,9 @@
     self.title = @"ToDos";
     AWMarkItDoneAPIManager *apiManager = [AWMarkItDoneAPIManager sharedManager];
     self.tableController = [apiManager fetchedResultsTableControllerForToDoListViewController:self];
+    AWToDoFiltersViewController *sideMenuViewController = [[AWToDoFiltersViewController alloc] init];
+    [MFSideMenuManager configureWithNavigationController:self.navigationController sideMenuController:sideMenuViewController];
+    [self setupSideMenuBarButtonItem];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

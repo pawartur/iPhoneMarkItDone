@@ -11,58 +11,76 @@
 
 @implementation AWCoolFooter
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
+@synthesize lightColor = _lightColor;
+@synthesize darkColor = _darkColor;
+
+- (id)init {
+    if ((self = [super init])) {
+        // Init self
         self.backgroundColor = [UIColor clearColor];
-        self.opaque = YES;
+        self.opaque = NO;
+        
+        // Init colors for future use
+        self.lightColor = [UIColor colorWithRed:0.0/255.0 green:123.0/255.0 blue:204.0/255.0 alpha:1.0];
+        self.darkColor = [UIColor colorWithRed:0.0/255.0 green:123.0/255.0 blue:204.0/255.0 alpha:1.0];
     }
     return self;
 }
+
 
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGColorRef whiteColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0].CGColor; 
-    CGColorRef lightGrayColor = [UIColor colorWithRed:230.0/255.0 green:230.0/255.0 blue:230.0/255.0 alpha:1.0].CGColor;
-    CGColorRef darkGrayColor = [UIColor colorWithRed:187.0/255.0 green:187.0/255.0 blue:187.0/255.0 alpha:1.0].CGColor;
+    CGColorRef lightColor = _lightColor.CGColor;
+    CGColorRef darkColor = _darkColor.CGColor;
+    
+    CGColorRef whiteColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0].CGColor;
     CGColorRef shadowColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.5].CGColor;
     
-    CGFloat paperMargin = 9.0;
-    CGRect paperRect = CGRectMake(self.bounds.origin.x+paperMargin, 
-                                  self.bounds.origin.y,
-                                  self.bounds.size.width-paperMargin*2, 
-                                  self.bounds.size.height);
+    CGContextSetFillColorWithColor(context, whiteColor);
+    CGContextFillRect(context, _paperRect);
     
-    CGRect arcRect = paperRect;
-    arcRect.size.height = 8;
-    
+    // Save the current context state
     CGContextSaveGState(context);
-    CGMutablePathRef arcPath = createArcPathFromBottomOfRect(arcRect, 4.0);
-    CGContextAddPath(context, arcPath);
-    CGContextClip(context);            
-    drawLinearGradient(context, paperRect, lightGrayColor, darkGrayColor);
-    CGContextRestoreGState(context);
-    
-    CGContextSaveGState(context);
-    CGPoint pointA = CGPointMake(arcRect.origin.x, arcRect.origin.y + arcRect.size.height - 1);
-    CGPoint pointB = CGPointMake(arcRect.origin.x, arcRect.origin.y);
-    CGPoint pointC = CGPointMake(arcRect.origin.x + arcRect.size.width - 1, arcRect.origin.y);
-    CGPoint pointD = CGPointMake(arcRect.origin.x + arcRect.size.width - 1, arcRect.origin.y + arcRect.size.height - 1);
-    draw1PxStroke(context, pointA, pointB, whiteColor);
-    draw1PxStroke(context, pointC, pointD, whiteColor);    
-    CGContextRestoreGState(context);
-    
-    CGContextAddRect(context, paperRect);
-    CGContextAddPath(context, arcPath);
-    CGContextEOClip(context);
-    CGContextAddPath(context, arcPath);
+    // Set shadow params
     CGContextSetShadowWithColor(context, CGSizeMake(0, 2), 3.0, shadowColor);
-    CGContextFillPath(context);
+    // Set fill color
+    CGContextSetFillColorWithColor(context, lightColor);
+    // Fill the colored box. Because we set the shadow, this act of filling will
+    // cause a shadow to appear underneath the path that we're drawing (in this
+    // case _coloredBoxRect).
+    CGContextFillRect(context, _coloredBoxRect);
+    // Restore the context
+    CGContextRestoreGState(context);
     
-    CFRelease(arcPath);
+    // Now add the gradient and gloss
+    drawGlossAndGradient(context, _coloredBoxRect, lightColor, darkColor);
+    
+    // Add a border to the colored box
+    CGContextSetStrokeColorWithColor(context, darkColor);
+    CGContextSetLineWidth(context, 1.0);
+    CGContextStrokeRect(context, rectFor1PxStroke(_coloredBoxRect));
 }
+
+-(void) layoutSubviews {
+    CGFloat coloredBoxMargin = 6.0;
+    CGFloat coloredBoxHeight = 40.0;
+    
+    // Prepare the rect for paper margin
+    CGFloat paperMargin = 9.0;
+    _paperRect = CGRectMake(paperMargin,
+                            0,
+                            self.bounds.size.width-paperMargin*2,
+                            paperMargin);
+
+    // Prepare the rect for colored box
+    _coloredBoxRect = CGRectMake(coloredBoxMargin,
+                                 coloredBoxMargin,
+                                 self.bounds.size.width-coloredBoxMargin*2,
+                                 coloredBoxHeight);
+    
+}
+
 
 @end

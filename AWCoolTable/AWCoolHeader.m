@@ -35,8 +35,8 @@
         [self addSubview:_titleLabel];
         
         // Init colors for future use
-        self.lightColor = [UIColor colorWithRed:105.0f/255.0f green:179.0f/255.0f blue:216.0f/255.0f alpha:1.0];
-        self.darkColor = [UIColor colorWithRed:21.0/255.0 green:92.0/255.0 blue:136.0/255.0 alpha:1.0];        
+        self.lightColor = [UIColor colorWithRed:0.0/255.0 green:123.0/255.0 blue:204.0/255.0 alpha:1.0];
+        self.darkColor = [UIColor colorWithRed:0.0/255.0 green:123.0/255.0 blue:204.0/255.0 alpha:1.0];
     }
     return self;
 }
@@ -77,7 +77,7 @@
     CGContextRestoreGState(context);
     
     // Now add the gradient and gloss
-    drawGlossAndGradient(context, _coloredBoxRect, lightColor, darkColor);  
+    drawGlossAndGradient(context, _coloredBoxRect, lightColor, darkColor)  ;
     
     // Add a border to the colored box
     CGContextSetStrokeColorWithColor(context, darkColor);
