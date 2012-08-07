@@ -12,8 +12,10 @@
 		751F803115C038C100230129 /* AWCoolCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F802C15C038C100230129 /* AWCoolCellBackground.m */; };
 		751F803215C038C100230129 /* AWCoolFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F802E15C038C100230129 /* AWCoolFooter.m */; };
 		751F803315C038C100230129 /* AWCoolHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F803015C038C100230129 /* AWCoolHeader.m */; };
-		751F803615C0398100230129 /* AWTodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751F803515C0398100230129 /* AWTodoListViewController.m */; };
 		752C466115BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */; };
+		754C3E4215D131A1003DAF15 /* AWInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754C3E3D15D131A1003DAF15 /* AWInitialViewController.m */; };
+		754C3E4315D131A1003DAF15 /* AWToDoFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754C3E3F15D131A1003DAF15 /* AWToDoFiltersViewController.m */; };
+		754C3E4415D131A1003DAF15 /* AWTodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754C3E4115D131A1003DAF15 /* AWTodoListViewController.m */; };
 		7554443015C72A1E00CEEF4A /* AWToDoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7554442F15C72A1E00CEEF4A /* AWToDoCell.m */; };
 		75782E1D15C556D0009DE488 /* MarkItDone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75782E1B15C556D0009DE488 /* MarkItDone.xcdatamodeld */; };
 		75782E4515C5601F009DE488 /* ToDoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E4415C5601F009DE488 /* ToDoList.m */; };
@@ -35,7 +37,6 @@
 		75CE982315BB2EF70043D3FC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE982215BB2EF70043D3FC /* QuartzCore.framework */; };
 		75CE982515BB2F070043D3FC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE982415BB2F070043D3FC /* libxml2.dylib */; };
 		75CE982715BB2F460043D3FC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE982615BB2F460043D3FC /* CoreData.framework */; };
-		75E0638B15BF238800D9D625 /* AWInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0638A15BF238800D9D625 /* AWInitialViewController.m */; };
 		75E0639A15BF250900D9D625 /* AWKeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0639915BF250900D9D625 /* AWKeychainWrapper.m */; };
 		75E0D87815CDC79C0007646D /* AWFetchedResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0D87715CDC79C0007646D /* AWFetchedResultsTableController.m */; };
 		75E0D88B15D1295F0007646D /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E0D88215D1295F0007646D /* back-arrow.png */; };
@@ -44,7 +45,6 @@
 		75E0D88E15D1295F0007646D /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E0D88515D1295F0007646D /* menu-icon@2x.png */; };
 		75E0D88F15D1295F0007646D /* MFSideMenuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0D88815D1295F0007646D /* MFSideMenuManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		75E0D89015D1295F0007646D /* UIViewController+MFSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0D88A15D1295F0007646D /* UIViewController+MFSideMenu.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		75E0D89315D12A7F0007646D /* AWToDoFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0D89215D12A7F0007646D /* AWToDoFiltersViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,11 +103,15 @@
 		751F802E15C038C100230129 /* AWCoolFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWCoolFooter.m; sourceTree = "<group>"; };
 		751F802F15C038C100230129 /* AWCoolHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWCoolHeader.h; sourceTree = "<group>"; };
 		751F803015C038C100230129 /* AWCoolHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWCoolHeader.m; sourceTree = "<group>"; };
-		751F803415C0398100230129 /* AWTodoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWTodoListViewController.h; path = ViewControllers/AWTodoListViewController.h; sourceTree = "<group>"; };
-		751F803515C0398100230129 /* AWTodoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWTodoListViewController.m; path = ViewControllers/AWTodoListViewController.m; sourceTree = "<group>"; };
 		752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManager.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.h; sourceTree = SOURCE_ROOT; };
 		752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWMarkItDoneAPIManager.m; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManager.m; sourceTree = SOURCE_ROOT; };
 		752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWMarkItDoneAPIManagerDelegate.h; path = AWMarkItDoneAPIManager/AWMarkItDoneAPIManagerDelegate.h; sourceTree = SOURCE_ROOT; };
+		754C3E3C15D131A1003DAF15 /* AWInitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWInitialViewController.h; sourceTree = "<group>"; };
+		754C3E3D15D131A1003DAF15 /* AWInitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWInitialViewController.m; sourceTree = "<group>"; };
+		754C3E3E15D131A1003DAF15 /* AWToDoFiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWToDoFiltersViewController.h; sourceTree = "<group>"; };
+		754C3E3F15D131A1003DAF15 /* AWToDoFiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWToDoFiltersViewController.m; sourceTree = "<group>"; };
+		754C3E4015D131A1003DAF15 /* AWTodoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWTodoListViewController.h; sourceTree = "<group>"; };
+		754C3E4115D131A1003DAF15 /* AWTodoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWTodoListViewController.m; sourceTree = "<group>"; };
 		7554442E15C72A1E00CEEF4A /* AWToDoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWToDoCell.h; sourceTree = "<group>"; };
 		7554442F15C72A1E00CEEF4A /* AWToDoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWToDoCell.m; sourceTree = "<group>"; };
 		75782E1C15C556D0009DE488 /* MarkItDone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarkItDone.xcdatamodel; sourceTree = "<group>"; };
@@ -138,8 +142,6 @@
 		75CE982215BB2EF70043D3FC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		75CE982415BB2F070043D3FC /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		75CE982615BB2F460043D3FC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		75E0638915BF238800D9D625 /* AWInitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWInitialViewController.h; path = ViewControllers/AWInitialViewController.h; sourceTree = "<group>"; };
-		75E0638A15BF238800D9D625 /* AWInitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWInitialViewController.m; path = ViewControllers/AWInitialViewController.m; sourceTree = "<group>"; };
 		75E0639415BF24CC00D9D625 /* AWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWConstants.h; sourceTree = "<group>"; };
 		75E0639815BF250900D9D625 /* AWKeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWKeychainWrapper.h; sourceTree = "<group>"; };
 		75E0639915BF250900D9D625 /* AWKeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWKeychainWrapper.m; sourceTree = "<group>"; };
@@ -154,8 +156,6 @@
 		75E0D88815D1295F0007646D /* MFSideMenuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuManager.m; sourceTree = "<group>"; };
 		75E0D88915D1295F0007646D /* UIViewController+MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenu.h"; sourceTree = "<group>"; };
 		75E0D88A15D1295F0007646D /* UIViewController+MFSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenu.m"; sourceTree = "<group>"; };
-		75E0D89115D12A7F0007646D /* AWToDoFiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWToDoFiltersViewController.h; path = ViewControllers/AWToDoFiltersViewController.h; sourceTree = "<group>"; };
-		75E0D89215D12A7F0007646D /* AWToDoFiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWToDoFiltersViewController.m; path = ViewControllers/AWToDoFiltersViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,12 +330,12 @@
 		75E0638815BF234700D9D625 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				75E0638915BF238800D9D625 /* AWInitialViewController.h */,
-				75E0638A15BF238800D9D625 /* AWInitialViewController.m */,
-				751F803415C0398100230129 /* AWTodoListViewController.h */,
-				751F803515C0398100230129 /* AWTodoListViewController.m */,
-				75E0D89115D12A7F0007646D /* AWToDoFiltersViewController.h */,
-				75E0D89215D12A7F0007646D /* AWToDoFiltersViewController.m */,
+				754C3E3C15D131A1003DAF15 /* AWInitialViewController.h */,
+				754C3E3D15D131A1003DAF15 /* AWInitialViewController.m */,
+				754C3E3E15D131A1003DAF15 /* AWToDoFiltersViewController.h */,
+				754C3E3F15D131A1003DAF15 /* AWToDoFiltersViewController.m */,
+				754C3E4015D131A1003DAF15 /* AWTodoListViewController.h */,
+				754C3E4115D131A1003DAF15 /* AWTodoListViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -480,14 +480,12 @@
 				75CE97EF15BB2CEB0043D3FC /* main.m in Sources */,
 				75CE97F315BB2CEB0043D3FC /* AWAppDelegate.m in Sources */,
 				752C466115BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m in Sources */,
-				75E0638B15BF238800D9D625 /* AWInitialViewController.m in Sources */,
 				75E0639A15BF250900D9D625 /* AWKeychainWrapper.m in Sources */,
 				751F802115C0340000230129 /* AWCoolButton.m in Sources */,
 				751F802515C0348300230129 /* AWCommon.m in Sources */,
 				751F803115C038C100230129 /* AWCoolCellBackground.m in Sources */,
 				751F803215C038C100230129 /* AWCoolFooter.m in Sources */,
 				751F803315C038C100230129 /* AWCoolHeader.m in Sources */,
-				751F803615C0398100230129 /* AWTodoListViewController.m in Sources */,
 				75782E1D15C556D0009DE488 /* MarkItDone.xcdatamodeld in Sources */,
 				75782E4515C5601F009DE488 /* ToDoList.m in Sources */,
 				75782E4815C5601F009DE488 /* ToDoContext.m in Sources */,
@@ -497,7 +495,9 @@
 				75E0D87815CDC79C0007646D /* AWFetchedResultsTableController.m in Sources */,
 				75E0D88F15D1295F0007646D /* MFSideMenuManager.m in Sources */,
 				75E0D89015D1295F0007646D /* UIViewController+MFSideMenu.m in Sources */,
-				75E0D89315D12A7F0007646D /* AWToDoFiltersViewController.m in Sources */,
+				754C3E4215D131A1003DAF15 /* AWInitialViewController.m in Sources */,
+				754C3E4315D131A1003DAF15 /* AWToDoFiltersViewController.m in Sources */,
+				754C3E4415D131A1003DAF15 /* AWTodoListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
