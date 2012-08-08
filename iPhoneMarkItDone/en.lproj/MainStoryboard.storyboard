@@ -132,6 +132,30 @@
             <point key="canvasLocation" x="918" y="207"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AWCoolButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AWCoolButton.h"/>
+        </class>
+        <class className="AWInitialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AWInitialViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="makeAction:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="actionButton" candidateClass="AWCoolButton"/>
+                <relationship kind="outlet" name="infoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AWToDoCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AWToDoCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AWTodoListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AWTodoListViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

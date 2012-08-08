@@ -30,14 +30,20 @@
     self.title = @"ToDos";
     AWMarkItDoneAPIManager *apiManager = [AWMarkItDoneAPIManager sharedManager];
     self.tableController = [apiManager fetchedResultsTableControllerForToDoListViewController:self];
-    AWToDoFiltersViewController *sideMenuViewController = [[AWToDoFiltersViewController alloc] init];
-    [MFSideMenuManager configureWithNavigationController:self.navigationController sideMenuController:sideMenuViewController];
-    [self setupSideMenuBarButtonItem];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.tableController loadTable];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    AWToDoFiltersViewController *sideMenuViewController = [[AWToDoFiltersViewController alloc] init];
+    UINavigationController *nc = self.navigationController;
+    [MFSideMenuManager configureWithNavigationController:self.navigationController sideMenuController:sideMenuViewController];
+    [self setupSideMenuBarButtonItem];
 }
 
 @end
