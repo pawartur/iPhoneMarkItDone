@@ -14,7 +14,9 @@
 #import "AWCoolFooter.h"
 #import "ToDo.h"
 
-@interface AWTodoListViewController ()
+@interface AWTodoListViewController (){
+    BOOL _sideMenuInitialized;
+}
 
 @property (nonatomic, strong) AWFetchedResultsTableController *tableController;
 
@@ -30,6 +32,7 @@
     self.title = @"ToDos";
     AWMarkItDoneAPIManager *apiManager = [AWMarkItDoneAPIManager sharedManager];
     self.tableController = [apiManager fetchedResultsTableControllerForToDoListViewController:self];
+    [self setupSideMenuBarButtonItem];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -40,10 +43,11 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    AWToDoFiltersViewController *sideMenuViewController = [[AWToDoFiltersViewController alloc] init];
-    UINavigationController *nc = self.navigationController;
-    [MFSideMenuManager configureWithNavigationController:self.navigationController sideMenuController:sideMenuViewController];
-    [self setupSideMenuBarButtonItem];
+    if (!_sideMenuInitialized) {
+        AWToDoFiltersViewController *sideMenuViewController = [[AWToDoFiltersViewController alloc] init];
+        [MFSideMenuManager configureWithNavigationController:self.navigationController sideMenuController:sideMenuViewController];
+        _sideMenuInitialized = YES;
+    }
 }
 
 @end
