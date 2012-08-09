@@ -13,15 +13,17 @@
 @implementation ToDoContext
 
 @dynamic name;
-@dynamic toDoContextId;
+@dynamic objectId;
 @dynamic toDos;
 
 +(RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore{
     RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForClass:self inManagedObjectStore:objectStore];
     
-    [mapping mapKeyPath:@"id" toAttribute:@"toDoContextId"];
+    [mapping mapKeyPath:@"id" toAttribute:@"objectId"];
     [mapping mapKeyPath:@"name" toAttribute:@"name"];
-       
+    
+    mapping.primaryKeyAttribute = @"objectId";
+    
     return mapping;
 }
 

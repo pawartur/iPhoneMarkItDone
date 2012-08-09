@@ -21,7 +21,7 @@
 @dynamic dueTime;
 @dynamic completionTime;
 @dynamic priority;
-@dynamic toDoId;
+@dynamic objectId;
 @dynamic toDoList;
 @dynamic toDoContext;
 @dynamic toDoAlerts;
@@ -29,7 +29,7 @@
 +(RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore{
     RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForClass:self inManagedObjectStore:objectStore];
     
-    [mapping mapKeyPath:@"id" toAttribute:@"toDoId"];
+    [mapping mapKeyPath:@"id" toAttribute:@"objectId"];
     [mapping mapKeyPath:@"name" toAttribute:@"name"];
     [mapping mapKeyPath:@"creation_time" toAttribute:@"creationTime"];
     [mapping mapKeyPath:@"last_update_time" toAttribute:@"lastUpdateTime"];
@@ -43,7 +43,7 @@
     
     mapping.rootKeyPath = @"object_list";
     
-    mapping.primaryKeyAttribute = @"toDoId";
+    mapping.primaryKeyAttribute = @"objectId";
     return mapping;
 }
 

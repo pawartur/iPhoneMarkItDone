@@ -20,7 +20,7 @@
 @property (nonatomic, retain) NSDate * dueTime;
 @property (nonatomic, retain) NSDate * completionTime;
 @property (nonatomic, retain) NSNumber * priority;
-@property (nonatomic, retain) NSNumber * toDoId;
+@property (nonatomic, retain) NSNumber * objectId;
 @property (nonatomic, retain) ToDoList *toDoList;
 @property (nonatomic, retain) ToDoContext *toDoContext;
 @property (nonatomic, retain) NSOrderedSet *toDoAlerts;

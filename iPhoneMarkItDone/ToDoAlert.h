@@ -14,7 +14,7 @@
 @interface ToDoAlert : NSManagedObject
 
 @property (nonatomic, retain) NSDate * time;
-@property (nonatomic, retain) NSNumber * toDoAlertId;
+@property (nonatomic, retain) NSNumber * objectId;
 @property (nonatomic, retain) ToDo *toDo;
 
 +(RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore;
