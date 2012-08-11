@@ -8,61 +8,41 @@
 
 #import "MFSideMenu.h"
 #import "AWToDoFiltersViewController.h"
+#import "AWMarkItDoneAPIManager.h"
+#import "ToDoList.h"
 
 @interface AWToDoFiltersViewController ()
+
+@property(nonatomic, retain) AWMarkItDoneAPIManager *apiManager;
+@property(nonatomic, retain) RKFetchedResultsTableController *tableController;
 
 @end
 
 @implementation AWToDoFiltersViewController
 
+@synthesize tableController = _tableController, apiManager = _apiManager;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Section %d", section];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 3;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
+    self.tableController = [self.apiManager fetchedResultsTableControllerForToFoFiltersViewController:self];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    [self.apiManager loadToDoLists];
+    [self.apiManager LoadToDoContexts];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableController loadTable];
+}
+
+#pragma mark - Accessors
+
+-(AWMarkItDoneAPIManager *)apiManager{
+    if (!_apiManager) {
+        _apiManager = [AWMarkItDoneAPIManager sharedManager];
     }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"Item %d", indexPath.row];
-    
-    return cell;
+    return _apiManager;
 }
-
-
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    /**
-    DemoViewController *demoController = [[[DemoViewController alloc] initWithNibName:@"DemoViewController" bundle:nil] autorelease];
-    demoController.title = [NSString stringWithFormat:@"Demo Controller #%d-%d", indexPath.section, indexPath.row];
-    
-    NSArray *controllers = [NSArray arrayWithObject:demoController];
-    [MFSideMenuManager sharedManager].navigationController.viewControllers = controllers;
-    [MFSideMenuManager sharedManager].navigationController.menuState = MFSideMenuStateHidden;
-     **/
-}
-
 
 @end

@@ -94,7 +94,33 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     return frtc;
 }
 
-#pragma mark - Setters
+-(RKFetchedResultsTableController *)fetchedResultsTableControllerForToFoFiltersViewController:(AWToDoFiltersViewController *)viewController{
+    RKFetchedResultsTableController *frtc = [[RKFetchedResultsTableController alloc] initWithTableView:viewController.tableView viewController:viewController];
+    frtc.objectManager = self.objectManager;
+    
+    frtc.autoRefreshFromNetwork = NO;
+    frtc.pullToRefreshEnabled = YES;
+    frtc.resourcePath = nil;
+    frtc.fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"NamedToDoCollection"];
+    frtc.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    
+    RKTableViewCellMapping *toDoListCellMapping = [RKTableViewCellMapping cellMapping];
+    toDoListCellMapping.cellClassName = @"UITableViewCell";
+    toDoListCellMapping.reuseIdentifier = @"ToDoListCell";
+    [toDoListCellMapping mapKeyPath:@"name" toAttribute:@"textLabel.text"];
+    
+    RKTableViewCellMapping *toDoContextCellMapping = [RKTableViewCellMapping cellMapping];
+    toDoContextCellMapping.cellClassName = @"UITableViewCell";
+    toDoContextCellMapping.reuseIdentifier = @"ToDoContextCell";
+    [toDoContextCellMapping mapKeyPath:@"name" toAttribute:@"textLabel.text"];
+    
+    [frtc mapObjectsWithClass:[ToDoList class] toTableCellsWithMapping:toDoListCellMapping];
+    [frtc mapObjectsWithClass:[ToDoContext class] toTableCellsWithMapping:toDoContextCellMapping];
+    
+    return frtc;
+}
+
+#pragma mark - Accessors
 
 -(void)setPassword:(NSString *)password{
     _password = password;
@@ -123,6 +149,22 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
                 [self.delegate markItDoneAPIManagerDidFailWithError:error];
             }
         };
+    }];
+}
+
+-(void)loadToDoLists{
+    [self.objectManager loadObjectsAtResourcePath:@"todos/lists" usingBlock:^(RKObjectLoader *loader){
+        RKObjectMappingProvider *mappingProvider = [RKObjectMappingProvider mappingProvider];
+        [mappingProvider setObjectMapping:[ToDoList mappingInManagedObjectStore:self.objectManager.objectStore] forKeyPath:@"object_list"];
+        loader.mappingProvider = mappingProvider;
+    }];
+}
+
+-(void)LoadToDoContexts{
+    [self.objectManager loadObjectsAtResourcePath:@"todos/contexts" usingBlock:^(RKObjectLoader *loader){
+        RKObjectMappingProvider *mappingProvider = [RKObjectMappingProvider mappingProvider];
+        [mappingProvider setObjectMapping:[ToDoContext mappingInManagedObjectStore:self.objectManager.objectStore] forKeyPath:@"object_list"];
+        loader.mappingProvider = mappingProvider;
     }];
 }
 

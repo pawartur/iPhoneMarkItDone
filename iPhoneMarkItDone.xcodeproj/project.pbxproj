@@ -235,14 +235,14 @@
 		75782E3615C55C4E009DE488 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				754C3E7715D3D618003DAF15 /* ToDoList.h */,
-				754C3E7815D3D618003DAF15 /* ToDoList.m */,
-				754C3E7415D3D5F4003DAF15 /* ToDoContext.h */,
-				754C3E7515D3D5F4003DAF15 /* ToDoContext.m */,
 				75782E4C15C56020009DE488 /* ToDo.h */,
 				75782E4D15C56020009DE488 /* ToDo.m */,
 				75782E4915C56020009DE488 /* ToDoAlert.h */,
 				75782E4A15C56020009DE488 /* ToDoAlert.m */,
+				754C3E7715D3D618003DAF15 /* ToDoList.h */,
+				754C3E7815D3D618003DAF15 /* ToDoList.m */,
+				754C3E7415D3D5F4003DAF15 /* ToDoContext.h */,
+				754C3E7515D3D5F4003DAF15 /* ToDoContext.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";

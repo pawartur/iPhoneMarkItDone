@@ -10,6 +10,7 @@
 #import "AWFetchedResultsTableController.h"
 #import "AWMarkItDoneAPIManagerDelegate.h"
 #import "AWToDoListViewController.h"
+#import "AWToDoFiltersViewController.h"
 
 @interface AWMarkItDoneAPIManager : NSObject
 
@@ -25,8 +26,11 @@
 +(AWMarkItDoneAPIManager *)sharedManager;
 
 -(void)authenticate;
+-(void)loadToDoLists;
+-(void)LoadToDoContexts;
 
 -(AWFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController;
+-(RKFetchedResultsTableController *)fetchedResultsTableControllerForToFoFiltersViewController:(AWToDoFiltersViewController *)viewController;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
