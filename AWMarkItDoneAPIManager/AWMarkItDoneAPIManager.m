@@ -102,7 +102,19 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     frtc.pullToRefreshEnabled = YES;
     frtc.resourcePath = nil;
     frtc.fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"NamedToDoCollection"];
-    frtc.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    frtc.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO]];
+    
+    frtc.sortComparator = ^(id obj1, id obj2){
+        if ([obj1 isKindOfClass:[ToDoList class]] && [obj2 isKindOfClass:[ToDoContext class]]) {
+            return NSOrderedAscending;
+        }
+        
+        if([obj2 isKindOfClass:[ToDoList class]] && [obj1 isKindOfClass:[ToDoContext class]]){
+            return NSOrderedDescending;
+        }
+        
+        return [[obj1 valueForKey:@"name"] compare:[obj2 valueForKey:@"name"]];
+    };
     
     RKTableViewCellMapping *toDoListCellMapping = [RKTableViewCellMapping cellMapping];
     toDoListCellMapping.cellClassName = @"UITableViewCell";
