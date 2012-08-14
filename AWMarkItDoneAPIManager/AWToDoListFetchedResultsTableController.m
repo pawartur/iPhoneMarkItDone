@@ -6,11 +6,11 @@
 //
 //
 
-#import "AWFetchedResultsTableController.h"
+#import "AWToDoListFetchedResultsTableController.h"
 #import "AWCoolHeader.h"
 #import "AWCoolFooter.h"
 
-@implementation AWFetchedResultsTableController
+@implementation AWToDoListFetchedResultsTableController
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return @"";

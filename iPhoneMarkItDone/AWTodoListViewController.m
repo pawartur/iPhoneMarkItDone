@@ -8,7 +8,7 @@
 
 #import "MFSideMenu.h"
 #import "AWMarkItDoneAPIManager.h"
-#import "AWFetchedResultsTableController.h"
+#import "AWToDoListFetchedResultsTableController.h"
 #import "AWTodoListViewController.h"
 #import "AWToDoFiltersViewController.h"
 #import "AWCoolFooter.h"
@@ -18,7 +18,7 @@
     BOOL _sideMenuInitialized;
 }
 
-@property (nonatomic, strong) AWFetchedResultsTableController *tableController;
+@property (nonatomic, strong) AWToDoListFetchedResultsTableController *tableController;
 
 @end
 

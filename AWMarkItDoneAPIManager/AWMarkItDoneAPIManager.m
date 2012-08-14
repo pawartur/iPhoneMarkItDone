@@ -7,7 +7,7 @@
 //
 
 #import "AWMarkItDoneAPIManager.h"
-#import "AWFetchedResultsTableController.h"
+#import "AWToDoListFetchedResultsTableController.h"
 #import "AWCoolHeader.h"
 #import "ToDo.h"
 #import "ToDoList.h"
@@ -73,8 +73,8 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
                               withFetchRequestBlock:toDoFetchRequestBlock];
 }
 
--(AWFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController{
-    AWFetchedResultsTableController *frtc = [[AWFetchedResultsTableController alloc] initWithTableView:viewController.tableView viewController:viewController];
+-(AWToDoListFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController{
+    AWToDoListFetchedResultsTableController *frtc = [[AWToDoListFetchedResultsTableController alloc] initWithTableView:viewController.tableView viewController:viewController];
     frtc.objectManager = self.objectManager;
     
     frtc.autoRefreshFromNetwork = YES;

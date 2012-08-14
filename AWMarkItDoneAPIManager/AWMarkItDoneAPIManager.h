@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AWFetchedResultsTableController.h"
+#import "AWToDoListFetchedResultsTableController.h"
 #import "AWMarkItDoneAPIManagerDelegate.h"
 #import "AWToDoListViewController.h"
 #import "AWToDoFiltersViewController.h"
@@ -29,7 +29,7 @@
 -(void)loadToDoLists;
 -(void)LoadToDoContexts;
 
--(AWFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController;
+-(AWToDoListFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController;
 -(RKFetchedResultsTableController *)fetchedResultsTableControllerForToFoFiltersViewController:(AWToDoFiltersViewController *)viewController;
 
 - (void)saveContext;

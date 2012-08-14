@@ -8,6 +8,6 @@
 
 #import <RestKit/RestKit.h>
 
-@interface AWFetchedResultsTableController : RKFetchedResultsTableController
+@interface AWToDoListFetchedResultsTableController : RKFetchedResultsTableController
 
 @end

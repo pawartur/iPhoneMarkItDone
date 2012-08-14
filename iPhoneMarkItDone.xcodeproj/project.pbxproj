@@ -38,7 +38,7 @@
 		75CE982515BB2F070043D3FC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE982415BB2F070043D3FC /* libxml2.dylib */; };
 		75CE982715BB2F460043D3FC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE982615BB2F460043D3FC /* CoreData.framework */; };
 		75E0639A15BF250900D9D625 /* AWKeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0639915BF250900D9D625 /* AWKeychainWrapper.m */; };
-		75E0D87815CDC79C0007646D /* AWFetchedResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0D87715CDC79C0007646D /* AWFetchedResultsTableController.m */; };
+		75E0D87815CDC79C0007646D /* AWToDoListFetchedResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0D87715CDC79C0007646D /* AWToDoListFetchedResultsTableController.m */; };
 		75E0D88B15D1295F0007646D /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E0D88215D1295F0007646D /* back-arrow.png */; };
 		75E0D88C15D1295F0007646D /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E0D88315D1295F0007646D /* back-arrow@2x.png */; };
 		75E0D88D15D1295F0007646D /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E0D88415D1295F0007646D /* menu-icon.png */; };
@@ -145,8 +145,8 @@
 		75E0639415BF24CC00D9D625 /* AWConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWConstants.h; sourceTree = "<group>"; };
 		75E0639815BF250900D9D625 /* AWKeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWKeychainWrapper.h; sourceTree = "<group>"; };
 		75E0639915BF250900D9D625 /* AWKeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWKeychainWrapper.m; sourceTree = "<group>"; };
-		75E0D87615CDC79C0007646D /* AWFetchedResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWFetchedResultsTableController.h; path = AWMarkItDoneAPIManager/AWFetchedResultsTableController.h; sourceTree = SOURCE_ROOT; };
-		75E0D87715CDC79C0007646D /* AWFetchedResultsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWFetchedResultsTableController.m; path = AWMarkItDoneAPIManager/AWFetchedResultsTableController.m; sourceTree = SOURCE_ROOT; };
+		75E0D87615CDC79C0007646D /* AWToDoListFetchedResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWToDoListFetchedResultsTableController.h; path = AWMarkItDoneAPIManager/AWToDoListFetchedResultsTableController.h; sourceTree = SOURCE_ROOT; };
+		75E0D87715CDC79C0007646D /* AWToDoListFetchedResultsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWToDoListFetchedResultsTableController.m; path = AWMarkItDoneAPIManager/AWToDoListFetchedResultsTableController.m; sourceTree = SOURCE_ROOT; };
 		75E0D88215D1295F0007646D /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow.png"; sourceTree = "<group>"; };
 		75E0D88315D1295F0007646D /* back-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow@2x.png"; sourceTree = "<group>"; };
 		75E0D88415D1295F0007646D /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 		752C465E15BDC528002FFCA2 /* AWMarkItDoneAPIManager */ = {
 			isa = PBXGroup;
 			children = (
-				75E0D87615CDC79C0007646D /* AWFetchedResultsTableController.h */,
-				75E0D87715CDC79C0007646D /* AWFetchedResultsTableController.m */,
+				75E0D87615CDC79C0007646D /* AWToDoListFetchedResultsTableController.h */,
+				75E0D87715CDC79C0007646D /* AWToDoListFetchedResultsTableController.m */,
 				752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */,
 				752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */,
 				752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */,
@@ -490,7 +490,7 @@
 				75782E4B15C56020009DE488 /* ToDoAlert.m in Sources */,
 				75782E4E15C56020009DE488 /* ToDo.m in Sources */,
 				7554443015C72A1E00CEEF4A /* AWToDoCell.m in Sources */,
-				75E0D87815CDC79C0007646D /* AWFetchedResultsTableController.m in Sources */,
+				75E0D87815CDC79C0007646D /* AWToDoListFetchedResultsTableController.m in Sources */,
 				75E0D88F15D1295F0007646D /* MFSideMenuManager.m in Sources */,
 				75E0D89015D1295F0007646D /* UIViewController+MFSideMenu.m in Sources */,
 				754C3E4215D131A1003DAF15 /* AWInitialViewController.m in Sources */,
