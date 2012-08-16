@@ -106,12 +106,12 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     frtc.sectionNameKeyPath = @"type";
     
     RKTableViewCellMapping *toDoListCellMapping = [RKTableViewCellMapping cellMapping];
-    toDoListCellMapping.cellClassName = @"UITableViewCell";
+    toDoListCellMapping.cellClassName = @"AWToDoFilterCell";
     toDoListCellMapping.reuseIdentifier = @"ToDoListCell";
     [toDoListCellMapping mapKeyPath:@"name" toAttribute:@"textLabel.text"];
     
     RKTableViewCellMapping *toDoContextCellMapping = [RKTableViewCellMapping cellMapping];
-    toDoContextCellMapping.cellClassName = @"UITableViewCell";
+    toDoContextCellMapping.cellClassName = @"AWToDoFilterCell";
     toDoContextCellMapping.reuseIdentifier = @"ToDoContextCell";
     [toDoContextCellMapping mapKeyPath:@"name" toAttribute:@"textLabel.text"];
     

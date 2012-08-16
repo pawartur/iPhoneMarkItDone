@@ -8,6 +8,7 @@
 
 #import "AWToDoFiltersFetchedResultsTableController.h"
 #import "AWMarkItDoneAPIManager.h"
+#import "AWToDoFilterSectionHeaderView.h"
 
 @implementation AWToDoFiltersFetchedResultsTableController
 
@@ -27,7 +28,17 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30;
+    return 44;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    CGFloat headerHeight = [self tableView:tableView heightForHeaderInSection:section];
+    
+    AWToDoFilterSectionHeaderView *headerView = [[AWToDoFilterSectionHeaderView alloc] initWithFrame:CGRectMake(0, 0, 360, headerHeight)];
+    NSString *title = [self tableView:tableView titleForHeaderInSection:section];
+    headerView.titleLabel.text = title;
+    
+    return headerView;
 }
 
 @end

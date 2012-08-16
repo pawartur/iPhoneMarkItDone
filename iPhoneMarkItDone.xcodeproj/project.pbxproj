@@ -22,6 +22,8 @@
 		75782E1D15C556D0009DE488 /* MarkItDone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75782E1B15C556D0009DE488 /* MarkItDone.xcdatamodeld */; };
 		75782E4B15C56020009DE488 /* ToDoAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E4A15C56020009DE488 /* ToDoAlert.m */; };
 		75782E4E15C56020009DE488 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E4D15C56020009DE488 /* ToDo.m */; };
+		758DD90415DD7FBA00BC7450 /* AWToDoFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 758DD90315DD7FBA00BC7450 /* AWToDoFilterCell.m */; };
+		758DD90715DD8BB000BC7450 /* AWToDoFilterSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 758DD90615DD8BB000BC7450 /* AWToDoFilterSectionHeaderView.m */; };
 		75CE97E315BB2CEB0043D3FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E215BB2CEB0043D3FC /* UIKit.framework */; };
 		75CE97E515BB2CEB0043D3FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E415BB2CEB0043D3FC /* Foundation.framework */; };
 		75CE97E715BB2CEB0043D3FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CE97E615BB2CEB0043D3FC /* CoreGraphics.framework */; };
@@ -124,6 +126,10 @@
 		75782E4A15C56020009DE488 /* ToDoAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoAlert.m; sourceTree = "<group>"; };
 		75782E4C15C56020009DE488 /* ToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDo.h; sourceTree = "<group>"; };
 		75782E4D15C56020009DE488 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
+		758DD90215DD7FBA00BC7450 /* AWToDoFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWToDoFilterCell.h; sourceTree = "<group>"; };
+		758DD90315DD7FBA00BC7450 /* AWToDoFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWToDoFilterCell.m; sourceTree = "<group>"; };
+		758DD90515DD8BB000BC7450 /* AWToDoFilterSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWToDoFilterSectionHeaderView.h; sourceTree = "<group>"; };
+		758DD90615DD8BB000BC7450 /* AWToDoFilterSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWToDoFilterSectionHeaderView.m; sourceTree = "<group>"; };
 		75CE97DE15BB2CEB0043D3FC /* iPhoneMarkItDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneMarkItDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75CE97E215BB2CEB0043D3FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		75CE97E415BB2CEB0043D3FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -231,8 +237,12 @@
 		7554442D15C729D100CEEF4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				758DD90515DD8BB000BC7450 /* AWToDoFilterSectionHeaderView.h */,
+				758DD90615DD8BB000BC7450 /* AWToDoFilterSectionHeaderView.m */,
 				7554442E15C72A1E00CEEF4A /* AWToDoCell.h */,
 				7554442F15C72A1E00CEEF4A /* AWToDoCell.m */,
+				758DD90215DD7FBA00BC7450 /* AWToDoFilterCell.h */,
+				758DD90315DD7FBA00BC7450 /* AWToDoFilterCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -504,6 +514,8 @@
 				754C3E7615D3D5F4003DAF15 /* ToDoContext.m in Sources */,
 				754C3E7915D3D618003DAF15 /* ToDoList.m in Sources */,
 				75EDA25A15DAC8D200391CB7 /* AWToDoFiltersFetchedResultsTableController.m in Sources */,
+				758DD90415DD7FBA00BC7450 /* AWToDoFilterCell.m in Sources */,
+				758DD90715DD8BB000BC7450 /* AWToDoFilterSectionHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
