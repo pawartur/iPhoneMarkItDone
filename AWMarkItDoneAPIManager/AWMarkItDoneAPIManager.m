@@ -153,19 +153,31 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     }];
 }
 
--(void)loadToDoLists{
+-(void)loadToDoListsWithCallback:(void (^)(NSArray *))callback{
     [self.objectManager loadObjectsAtResourcePath:@"todos/lists" usingBlock:^(RKObjectLoader *loader){
         RKObjectMappingProvider *mappingProvider = [RKObjectMappingProvider mappingProvider];
         [mappingProvider setObjectMapping:[ToDoList mappingInManagedObjectStore:self.objectManager.objectStore] forKeyPath:@"object_list"];
         loader.mappingProvider = mappingProvider;
+        
+        loader.onDidLoadObjects = ^(NSArray *objects){
+            if (callback) {
+                callback(objects);
+            }
+        };
     }];
 }
 
--(void)LoadToDoContexts{
+-(void)LoadToDoContextsWithCallback:(void (^)(NSArray *))callback{
     [self.objectManager loadObjectsAtResourcePath:@"todos/contexts" usingBlock:^(RKObjectLoader *loader){
         RKObjectMappingProvider *mappingProvider = [RKObjectMappingProvider mappingProvider];
         [mappingProvider setObjectMapping:[ToDoContext mappingInManagedObjectStore:self.objectManager.objectStore] forKeyPath:@"object_list"];
         loader.mappingProvider = mappingProvider;
+        
+        loader.onDidLoadObjects = ^(NSArray *objects){
+            if (callback) {
+                callback(objects);
+            }
+        };
     }];
 }
 

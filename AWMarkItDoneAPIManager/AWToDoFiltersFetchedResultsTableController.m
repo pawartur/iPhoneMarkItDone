@@ -17,13 +17,28 @@
     return [self isLoaded] && [self isLoading] && [self isOnline];
 }
 
+-(BOOL)isLoading{
+    return isLoadingToDoContexts || isLoadingToDoContexts;
+}
+
 - (void)pullToRefreshStateChanged:(UIGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateRecognized) {
         if ([self pullToRefreshDataSourceIsLoading:gesture])
             return;
         AWMarkItDoneAPIManager *apiManager = [AWMarkItDoneAPIManager sharedManager];
-        [apiManager loadToDoLists];
-        [apiManager LoadToDoContexts];
+        isLoadingToDoContexts = isLoadingToDoLists = YES;
+        [apiManager loadToDoListsWithCallback:^(NSArray *toDoLists){
+            isLoadingToDoLists = NO;
+            if (![self isLoading]) {
+                [self isLoadingDidChange];
+            }
+        }];
+        [apiManager LoadToDoContextsWithCallback:^(NSArray *toDoContexts){
+            isLoadingToDoContexts = NO;
+            if (![self isLoading]) {
+                [self isLoadingDidChange];
+            }
+        }];
     }
 }
 

@@ -27,8 +27,8 @@
 +(AWMarkItDoneAPIManager *)sharedManager;
 
 -(void)authenticate;
--(void)loadToDoLists;
--(void)LoadToDoContexts;
+-(void)loadToDoListsWithCallback:(void (^)(NSArray *toDoLists))callback;
+-(void)LoadToDoContextsWithCallback:(void (^)(NSArray *toDoContexts))callback;
 
 -(AWToDoListFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController;
 -(AWToDoFiltersFetchedResultsTableController *)fetchedResultsTableControllerForToFoFiltersViewController:(AWToDoFiltersViewController *)viewController;

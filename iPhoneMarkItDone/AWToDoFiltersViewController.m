@@ -27,8 +27,8 @@
     [super viewDidLoad];
     self.tableController = [self.apiManager fetchedResultsTableControllerForToFoFiltersViewController:self];
     
-    [self.apiManager loadToDoLists];
-    [self.apiManager LoadToDoContexts];
+    [self.apiManager loadToDoListsWithCallback:nil];
+    [self.apiManager LoadToDoContextsWithCallback:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -8,6 +8,15 @@
 
 #import <RestKit/RestKit.h>
 
-@interface AWToDoFiltersFetchedResultsTableController : RKFetchedResultsTableController
+@interface AWToDoFiltersFetchedResultsTableController : RKFetchedResultsTableController{
+    BOOL isLoadingToDoLists;
+    BOOL isLoadingToDoContexts;
+}
+
+@end
+
+@interface RKFetchedResultsTableController (PullToRefreshEnabled)
+
+- (void)isLoadingDidChange;
 
 @end
