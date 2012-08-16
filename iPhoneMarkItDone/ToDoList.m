@@ -13,6 +13,7 @@
 @implementation ToDoList
 
 @dynamic name;
+@dynamic type;
 @dynamic objectId;
 @dynamic toDos;
 
@@ -24,7 +25,14 @@
     
     mapping.primaryKeyAttribute = @"objectId";
     
+    
+    
     return mapping;
+}
+
+-(void)awakeFromInsert{
+    [super awakeFromInsert];
+    [self setValue:@"ToDo List" forKey:@"type"];
 }
 
 @end

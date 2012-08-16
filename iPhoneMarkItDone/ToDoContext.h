@@ -14,6 +14,7 @@
 @interface ToDoContext : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSNumber * objectId;
 @property (nonatomic, retain) NSOrderedSet *toDos;
 
