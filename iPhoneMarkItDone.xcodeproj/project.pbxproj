@@ -45,6 +45,7 @@
 		75E0D88E15D1295F0007646D /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75E0D88515D1295F0007646D /* menu-icon@2x.png */; };
 		75E0D88F15D1295F0007646D /* MFSideMenuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0D88815D1295F0007646D /* MFSideMenuManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		75E0D89015D1295F0007646D /* UIViewController+MFSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E0D88A15D1295F0007646D /* UIViewController+MFSideMenu.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		75EDA25A15DAC8D200391CB7 /* AWToDoFiltersFetchedResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75EDA25915DAC8D200391CB7 /* AWToDoFiltersFetchedResultsTableController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,8 @@
 		75E0D88815D1295F0007646D /* MFSideMenuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuManager.m; sourceTree = "<group>"; };
 		75E0D88915D1295F0007646D /* UIViewController+MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenu.h"; sourceTree = "<group>"; };
 		75E0D88A15D1295F0007646D /* UIViewController+MFSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenu.m"; sourceTree = "<group>"; };
+		75EDA25815DAC8D200391CB7 /* AWToDoFiltersFetchedResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWToDoFiltersFetchedResultsTableController.h; path = AWMarkItDoneAPIManager/AWToDoFiltersFetchedResultsTableController.h; sourceTree = SOURCE_ROOT; };
+		75EDA25915DAC8D200391CB7 /* AWToDoFiltersFetchedResultsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWToDoFiltersFetchedResultsTableController.m; path = AWMarkItDoneAPIManager/AWToDoFiltersFetchedResultsTableController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +219,8 @@
 			children = (
 				75E0D87615CDC79C0007646D /* AWToDoListFetchedResultsTableController.h */,
 				75E0D87715CDC79C0007646D /* AWToDoListFetchedResultsTableController.m */,
+				75EDA25815DAC8D200391CB7 /* AWToDoFiltersFetchedResultsTableController.h */,
+				75EDA25915DAC8D200391CB7 /* AWToDoFiltersFetchedResultsTableController.m */,
 				752C465F15BDC55F002FFCA2 /* AWMarkItDoneAPIManager.h */,
 				752C466015BDC55F002FFCA2 /* AWMarkItDoneAPIManager.m */,
 				752C466215BDC5C8002FFCA2 /* AWMarkItDoneAPIManagerDelegate.h */,
@@ -498,6 +503,7 @@
 				754C3E4415D131A1003DAF15 /* AWTodoListViewController.m in Sources */,
 				754C3E7615D3D5F4003DAF15 /* ToDoContext.m in Sources */,
 				754C3E7915D3D618003DAF15 /* ToDoList.m in Sources */,
+				75EDA25A15DAC8D200391CB7 /* AWToDoFiltersFetchedResultsTableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

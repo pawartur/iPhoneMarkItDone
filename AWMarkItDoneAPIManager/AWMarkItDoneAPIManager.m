@@ -94,8 +94,8 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     return frtc;
 }
 
--(RKFetchedResultsTableController *)fetchedResultsTableControllerForToFoFiltersViewController:(AWToDoFiltersViewController *)viewController{
-    RKFetchedResultsTableController *frtc = [[RKFetchedResultsTableController alloc] initWithTableView:viewController.tableView viewController:viewController];
+-(AWToDoFiltersFetchedResultsTableController *)fetchedResultsTableControllerForToFoFiltersViewController:(AWToDoFiltersViewController *)viewController{
+    AWToDoFiltersFetchedResultsTableController *frtc = [[AWToDoFiltersFetchedResultsTableController alloc] initWithTableView:viewController.tableView viewController:viewController];
     frtc.objectManager = self.objectManager;
     
     frtc.autoRefreshFromNetwork = NO;
