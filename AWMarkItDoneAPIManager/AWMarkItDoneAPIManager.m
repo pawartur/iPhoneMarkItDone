@@ -22,6 +22,8 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
 @interface AWMarkItDoneAPIManager ()
 
 -(void)setUpToDoMapping;
+-(void)setUpToDoListMapping;
+-(void)setUpToDoContextMapping;
 
 @end
 
@@ -50,8 +52,12 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
         manager.objectManager = [RKObjectManager managerWithBaseURLString:kBaseAPIURLString];
         [RKObjectManager setSharedManager:manager.objectManager];
         manager.objectManager.objectStore = manager.managedObjectContext.managedObjectStore;
+        manager.objectManager.objectStore.cacheStrategy = [RKFetchRequestManagedObjectCache new];
     
         [manager setUpToDoMapping];
+        [manager setUpToDoListMapping];
+        [manager setUpToDoContextMapping];
+        
     });
     return manager;
 }
@@ -71,6 +77,28 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     [self.objectManager.mappingProvider setObjectMapping:toDoMapping
                              forResourcePathPattern:@"/todos"
                               withFetchRequestBlock:toDoFetchRequestBlock];
+}
+
+-(void)setUpToDoListMapping{
+    RKObjectMappingProviderFetchRequestBlock toDoListFetchRequestBlock = ^NSFetchRequest*(NSString *resourcePath){
+        NSFetchRequest *fetchRequest = [ToDoList fetchRequest];
+        fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+        return fetchRequest;
+    };
+    
+    RKObjectMapping *toDoListMapping = [ToDoList mappingInManagedObjectStore:self.objectManager.objectStore];
+    [self.objectManager.mappingProvider setObjectMapping:toDoListMapping forResourcePathPattern:@"todos/lists" withFetchRequestBlock:toDoListFetchRequestBlock];
+}
+
+-(void)setUpToDoContextMapping{
+    RKObjectMappingProviderFetchRequestBlock toDoContextFetchRequestBlock = ^NSFetchRequest*(NSString *resourcePath){
+        NSFetchRequest *fetchRequest = [ToDoContext fetchRequest];
+        fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+        return fetchRequest;
+    };
+    
+    RKObjectMapping *toDoContextMapping = [ToDoContext mappingInManagedObjectStore:self.objectManager.objectStore];
+    [self.objectManager.mappingProvider setObjectMapping:toDoContextMapping forResourcePathPattern:@"todos/contexts" withFetchRequestBlock:toDoContextFetchRequestBlock];
 }
 
 -(AWToDoListFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController{
@@ -153,32 +181,25 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     }];
 }
 
+// TODO: The following two methods need to be generilized, since they differ by only one NSString...
 -(void)loadToDoListsWithCallback:(void (^)(NSArray *))callback{
-    [self.objectManager loadObjectsAtResourcePath:@"todos/lists" usingBlock:^(RKObjectLoader *loader){
-        RKObjectMappingProvider *mappingProvider = [RKObjectMappingProvider mappingProvider];
-        [mappingProvider setObjectMapping:[ToDoList mappingInManagedObjectStore:self.objectManager.objectStore] forKeyPath:@"object_list"];
-        loader.mappingProvider = mappingProvider;
-        
-        loader.onDidLoadObjects = ^(NSArray *objects){
-            if (callback) {
-                callback(objects);
-            }
-        };
-    }];
+    RKObjectLoader *loader = [self.objectManager loaderWithResourcePath:@"todos/lists"];
+    loader.onDidLoadObjects = ^(NSArray *objects){
+        if (callback) {
+            callback(objects);
+        }
+    };
+    [loader.queue addRequest:loader];
 }
 
 -(void)LoadToDoContextsWithCallback:(void (^)(NSArray *))callback{
-    [self.objectManager loadObjectsAtResourcePath:@"todos/contexts" usingBlock:^(RKObjectLoader *loader){
-        RKObjectMappingProvider *mappingProvider = [RKObjectMappingProvider mappingProvider];
-        [mappingProvider setObjectMapping:[ToDoContext mappingInManagedObjectStore:self.objectManager.objectStore] forKeyPath:@"object_list"];
-        loader.mappingProvider = mappingProvider;
-        
-        loader.onDidLoadObjects = ^(NSArray *objects){
-            if (callback) {
-                callback(objects);
-            }
-        };
-    }];
+    RKObjectLoader *loader = [self.objectManager loaderWithResourcePath:@"todos/contexts"];
+    loader.onDidLoadObjects = ^(NSArray *objects){
+        if (callback) {
+            callback(objects);
+        }
+    };
+    [loader.queue addRequest:loader];
 }
 
 #pragma mark - Core Data stack

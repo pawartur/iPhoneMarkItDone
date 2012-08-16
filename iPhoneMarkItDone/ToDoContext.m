@@ -25,6 +25,8 @@
     
     mapping.primaryKeyAttribute = @"objectId";
     
+    mapping.rootKeyPath = @"object_list";
+    
     return mapping;
 }
 
