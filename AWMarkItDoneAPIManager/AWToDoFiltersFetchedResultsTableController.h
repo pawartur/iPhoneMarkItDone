@@ -14,9 +14,3 @@
 }
 
 @end
-
-@interface RKFetchedResultsTableController (PullToRefreshEnabled)
-
-- (void)isLoadingDidChange;
-
-@end

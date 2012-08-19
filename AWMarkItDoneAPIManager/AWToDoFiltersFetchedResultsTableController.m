@@ -10,12 +10,14 @@
 #import "AWMarkItDoneAPIManager.h"
 #import "AWToDoFilterSectionHeaderView.h"
 
-@implementation AWToDoFiltersFetchedResultsTableController
+@interface RKFetchedResultsTableController (PullToRefreshEnabled)
 
-- (BOOL)pullToRefreshDataSourceIsLoading:(UIGestureRecognizer *)gesture {
-    // If we have already been loaded and we are loading again, a refresh is taking place...
-    return [self isLoaded] && [self isLoading] && [self isOnline];
-}
+- (void)isLoadingDidChange;
+- (BOOL)pullToRefreshDataSourceIsLoading:(UIGestureRecognizer *)gesture;
+
+@end
+
+@implementation AWToDoFiltersFetchedResultsTableController
 
 -(BOOL)isLoading{
     return isLoadingToDoContexts || isLoadingToDoContexts;

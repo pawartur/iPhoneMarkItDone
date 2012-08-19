@@ -50,10 +50,13 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
         
         manager = [[AWMarkItDoneAPIManager alloc] init];
         manager.objectManager = [RKObjectManager managerWithBaseURLString:kBaseAPIURLString];
+        
+        // This is only for development
+        manager.objectManager.client.reachabilityObserver = [RKReachabilityObserver reachabilityObserverForHost:@"localhost"];
+        
         [RKObjectManager setSharedManager:manager.objectManager];
         manager.objectManager.objectStore = manager.managedObjectContext.managedObjectStore;
         manager.objectManager.objectStore.cacheStrategy = [RKFetchRequestManagedObjectCache new];
-    
         [manager setUpToDoMapping];
         [manager setUpToDoListMapping];
         [manager setUpToDoContextMapping];
@@ -142,6 +145,18 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     toDoContextCellMapping.cellClassName = @"AWToDoFilterCell";
     toDoContextCellMapping.reuseIdentifier = @"ToDoContextCell";
     [toDoContextCellMapping mapKeyPath:@"name" toAttribute:@"textLabel.text"];
+    
+    /**
+    RKTableViewCellMapping *tableItemMapping = [RKTableViewCellMapping cellMapping];
+    tableItemMapping.cellClassName = @"UITableViewCell";
+    tableItemMapping.reuseIdentifier = @"TableItemCell";
+    [tableItemMapping mapKeyPath:@"text" toAttribute:@"textLabel.text"];
+     
+    [frtc addHeaderRowForItem:[RKTableItem tableItemWithText:@"Add ToDo List"]];
+    [frtc addHeaderRowForItem:[RKTableItem tableItemWithText:@"Add ToDo Context"]];
+    
+    [frtc mapObjectsWithClass:[RKTableItem class] toTableCellsWithMapping:tableItemMapping];
+    **/
     
     [frtc mapObjectsWithClass:[ToDoList class] toTableCellsWithMapping:toDoListCellMapping];
     [frtc mapObjectsWithClass:[ToDoContext class] toTableCellsWithMapping:toDoContextCellMapping];
