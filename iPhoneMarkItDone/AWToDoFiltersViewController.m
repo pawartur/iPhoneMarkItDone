@@ -8,13 +8,14 @@
 
 #import "MFSideMenu.h"
 #import "AWToDoFiltersViewController.h"
+#import "AWToDoFiltersFetchedResultsTableController.h"
 #import "AWMarkItDoneAPIManager.h"
 #import "ToDoList.h"
 
 @interface AWToDoFiltersViewController ()
 
 @property(nonatomic, retain) AWMarkItDoneAPIManager *apiManager;
-@property(nonatomic, retain) RKFetchedResultsTableController *tableController;
+@property(nonatomic, retain) AWToDoFiltersFetchedResultsTableController *tableController;
 
 @end
 

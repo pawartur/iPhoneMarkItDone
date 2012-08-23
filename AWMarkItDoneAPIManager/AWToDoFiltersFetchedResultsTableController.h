@@ -8,9 +8,17 @@
 
 #import <RestKit/RestKit.h>
 
-@interface AWToDoFiltersFetchedResultsTableController : RKFetchedResultsTableController{
-    BOOL isLoadingToDoLists;
-    BOOL isLoadingToDoContexts;
+@class AWMarkItDoneAPIManager;
+
+@interface AWToDoFiltersFetchedResultsTableController : RKAbstractTableController <NSFetchedResultsControllerDelegate>{
+    BOOL _isLoadingToDoLists;
+    BOOL _isLoadingToDoContexts;
 }
+
+@property(nonatomic, strong) AWMarkItDoneAPIManager *apiManager;
+@property(nonatomic, strong) NSFetchedResultsController *toDoListsFetchedResultsController;
+@property(nonatomic, strong) NSFetchedResultsController *toDoContextsFetchedResultsController;
+
+- (void)loadTable;
 
 @end

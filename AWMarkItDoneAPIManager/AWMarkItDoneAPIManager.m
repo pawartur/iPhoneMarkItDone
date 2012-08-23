@@ -131,36 +131,7 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
     
     frtc.autoRefreshFromNetwork = NO;
     frtc.pullToRefreshEnabled = YES;
-    frtc.resourcePath = nil;
-    frtc.fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"NamedToDoCollection"];
-    frtc.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"type" ascending:NO], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-    frtc.sectionNameKeyPath = @"type";
-    
-    RKTableViewCellMapping *toDoListCellMapping = [RKTableViewCellMapping cellMapping];
-    toDoListCellMapping.cellClassName = @"AWToDoFilterCell";
-    toDoListCellMapping.reuseIdentifier = @"ToDoListCell";
-    [toDoListCellMapping mapKeyPath:@"name" toAttribute:@"textLabel.text"];
-    
-    RKTableViewCellMapping *toDoContextCellMapping = [RKTableViewCellMapping cellMapping];
-    toDoContextCellMapping.cellClassName = @"AWToDoFilterCell";
-    toDoContextCellMapping.reuseIdentifier = @"ToDoContextCell";
-    [toDoContextCellMapping mapKeyPath:@"name" toAttribute:@"textLabel.text"];
-    
-    /**
-    RKTableViewCellMapping *tableItemMapping = [RKTableViewCellMapping cellMapping];
-    tableItemMapping.cellClassName = @"UITableViewCell";
-    tableItemMapping.reuseIdentifier = @"TableItemCell";
-    [tableItemMapping mapKeyPath:@"text" toAttribute:@"textLabel.text"];
-     
-    [frtc addHeaderRowForItem:[RKTableItem tableItemWithText:@"Add ToDo List"]];
-    [frtc addHeaderRowForItem:[RKTableItem tableItemWithText:@"Add ToDo Context"]];
-    
-    [frtc mapObjectsWithClass:[RKTableItem class] toTableCellsWithMapping:tableItemMapping];
-    **/
-    
-    [frtc mapObjectsWithClass:[ToDoList class] toTableCellsWithMapping:toDoListCellMapping];
-    [frtc mapObjectsWithClass:[ToDoContext class] toTableCellsWithMapping:toDoContextCellMapping];
-    
+        
     return frtc;
 }
 
