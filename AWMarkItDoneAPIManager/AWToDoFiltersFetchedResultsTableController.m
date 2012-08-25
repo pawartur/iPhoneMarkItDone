@@ -77,9 +77,9 @@ return _apiManager;
 
 - (NSIndexPath *)indexPathForForFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController andFetchedResultsIndexPath:(NSIndexPath *)indexPath {
     if (fetchedResultsController == self.toDoListsFetchedResultsController) {
-        return [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+        return [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
     }else if(fetchedResultsController == self.toDoContextsFetchedResultsController){
-        return [NSIndexPath indexPathForRow:indexPath.row inSection:1];
+        return [NSIndexPath indexPathForRow:indexPath.row+1 inSection:1];
     }
     return nil;
 }
