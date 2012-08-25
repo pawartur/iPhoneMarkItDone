@@ -21,7 +21,9 @@
 
 @implementation AWToDoFiltersViewController
 
-@synthesize tableController = _tableController, apiManager = _apiManager;
+@synthesize
+    tableController = _tableController,
+    apiManager = _apiManager;
 
 - (void)viewDidLoad
 {

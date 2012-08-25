@@ -53,17 +53,7 @@ return _apiManager;
 
 -(NSFetchedResultsController *)toDoListsFetchedResultsController{
     if (!_toDoListsFetchedResultsController) {
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *toDoListDescription = [NSEntityDescription entityForName:@"ToDoList" inManagedObjectContext:self.apiManager.managedObjectContext];
-        [fetchRequest setEntity:toDoListDescription];
-        [fetchRequest setSortDescriptors:@[ [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES] ]];
-        
-        _toDoListsFetchedResultsController = [[NSFetchedResultsController alloc]
-                                              initWithFetchRequest:fetchRequest
-                                              managedObjectContext:self.apiManager.managedObjectContext
-                                              sectionNameKeyPath:nil
-                                              cacheName:@"toDoListsCache"];
-        
+        _toDoListsFetchedResultsController = [ToDoList fetchAllSortedBy:@"name" ascending:YES withPredicate:nil groupBy:nil];
         _toDoListsFetchedResultsController.delegate = self;
     }
     
@@ -72,17 +62,7 @@ return _apiManager;
 
 -(NSFetchedResultsController *)toDoContextsFetchedResultsController{
     if (!_toDoContextsFetchedResultsController) {
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *toDoContexttDescription = [NSEntityDescription entityForName:@"ToDoContext" inManagedObjectContext:self.apiManager.managedObjectContext];
-        [fetchRequest setEntity:toDoContexttDescription];
-        [fetchRequest setSortDescriptors:@[ [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES] ]];
-        
-        _toDoContextsFetchedResultsController = [[NSFetchedResultsController alloc]
-                                                 initWithFetchRequest:fetchRequest
-                                                 managedObjectContext:self.apiManager.managedObjectContext
-                                                 sectionNameKeyPath:nil
-                                                 cacheName:@"toDoContextsCache"];
-        
+        _toDoContextsFetchedResultsController = [ToDoContext fetchAllSortedBy:@"name" ascending:YES withPredicate:nil groupBy:nil];
         _toDoContextsFetchedResultsController.delegate = self;
     }
     
@@ -90,11 +70,6 @@ return _apiManager;
 }
 
 #pragma mark - Helpers
-
-- (NSIndexPath *)fetchedResultsIndexPathForFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController andIndexPath:(NSIndexPath *)indexPath {
-    
-    return indexPath;
-}
 
 - (NSIndexPath *)fetchedResultsIndexPathForIndexPath:(NSIndexPath *)indexPath {
     return [NSIndexPath indexPathForRow:indexPath.row-1 inSection:0];
@@ -306,6 +281,85 @@ return _apiManager;
         return [self.toDoContextsFetchedResultsController objectAtIndexPath:[self fetchedResultsIndexPathForIndexPath:indexPath]];
     }
     return nil;
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate methods
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController*)controller {   
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController*)controller
+  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type {
+    
+    if (controller == self.toDoListsFetchedResultsController) {
+        sectionIndex = 0;
+    }else if(controller == self.toDoContextsFetchedResultsController){
+        sectionIndex = 1;
+    }
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController*)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    NSIndexPath* adjIndexPath = [self indexPathForForFetchedResultsController:controller andFetchedResultsIndexPath:indexPath];
+    NSIndexPath* adjNewIndexPath = [self indexPathForForFetchedResultsController:controller andFetchedResultsIndexPath:newIndexPath];
+
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:adjNewIndexPath]
+                                  withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:adjIndexPath]
+                                  withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            /**
+             TODO: Missing a call to a replacement for configureCell:atIndexPath: which updates
+             the contents of a given cell with the information from a managed object
+             at a given index path in the fetched results controller
+             */
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:adjIndexPath]
+                                  withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:adjNewIndexPath]
+                                  withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        default:
+            RKLogTrace(@"Encountered unexpected object changeType: %d", type);
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController*)controller {
+    [self.tableView endUpdates];
+    [self didFinishLoad];
 }
 
 
