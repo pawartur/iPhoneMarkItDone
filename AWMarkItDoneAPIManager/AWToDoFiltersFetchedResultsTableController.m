@@ -346,6 +346,7 @@ typedef enum{
             break;
             
         case NSFetchedResultsChangeUpdate:
+            [self.tableView reloadRowsAtIndexPaths:@[ adjIndexPath ] withRowAnimation:UITableViewRowAnimationTop];
             /**
              TODO: Missing a call to a replacement for configureCell:atIndexPath: which updates
              the contents of a given cell with the information from a managed object
