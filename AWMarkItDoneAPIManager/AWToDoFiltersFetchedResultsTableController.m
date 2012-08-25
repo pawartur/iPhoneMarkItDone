@@ -12,6 +12,11 @@
 #import "ToDoList.h"
 #import "ToDoContext.h"
 
+typedef enum{
+    AWToDoFilersTableViewSectionToDoLists,
+    AWToDoFilersTableViewSectionToDoContexts
+}AWToDoFilersTableViewSection;
+
 @interface RKAbstractTableController (PullToRefreshEnabled)
 
 - (void)isLoadingDidChange;
@@ -19,6 +24,7 @@
 - (void)didStartLoad;
 - (void)didFinishLoad;
 - (void)didFailLoadWithError:(NSError *)error;
+-(void)prepareCellMappings;
 
 @end
 
@@ -31,13 +37,7 @@
 
 -(id)init{
     if (self = [super init]) {
-        RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
-        cellMapping.cellClassName = @"UITableViewCell";
-        cellMapping.reuseIdentifier = @"ToDoFilterCell";
-        [cellMapping mapKeyPath:@"name" toAttribute:@"textLabel.text"];
-        
-        [self.cellMappings setCellMapping:cellMapping forClass:[ToDoList class]];
-        [self.cellMappings setCellMapping:cellMapping forClass:[ToDoContext class]];
+        [self prepareCellMappings];
     }
     return self;
 }
@@ -45,10 +45,10 @@
 #pragma mark - Accessors
 
 -(AWMarkItDoneAPIManager *)apiManager{
-if (!_apiManager) {
-_apiManager = [AWMarkItDoneAPIManager sharedManager];
-}
-return _apiManager;
+    if (!_apiManager) {
+        _apiManager = [AWMarkItDoneAPIManager sharedManager];
+    }
+    return _apiManager;
 }
 
 -(NSFetchedResultsController *)toDoListsFetchedResultsController{
@@ -56,7 +56,6 @@ return _apiManager;
         _toDoListsFetchedResultsController = [ToDoList fetchAllSortedBy:@"name" ascending:YES withPredicate:nil groupBy:nil];
         _toDoListsFetchedResultsController.delegate = self;
     }
-    
     return _toDoListsFetchedResultsController;
 }
 
@@ -77,9 +76,9 @@ return _apiManager;
 
 - (NSIndexPath *)indexPathForForFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController andFetchedResultsIndexPath:(NSIndexPath *)indexPath {
     if (fetchedResultsController == self.toDoListsFetchedResultsController) {
-        return [NSIndexPath indexPathForRow:indexPath.row+1 inSection:0];
+        return [NSIndexPath indexPathForRow:indexPath.row+1 inSection:AWToDoFilersTableViewSectionToDoLists];
     }else if(fetchedResultsController == self.toDoContextsFetchedResultsController){
-        return [NSIndexPath indexPathForRow:indexPath.row+1 inSection:1];
+        return [NSIndexPath indexPathForRow:indexPath.row+1 inSection:AWToDoFilersTableViewSectionToDoContexts];
     }
     return nil;
 }
@@ -89,9 +88,9 @@ return _apiManager;
 }
 
 -(BOOL)isAddFilterObjectIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
+    if (indexPath.section == AWToDoFilersTableViewSectionToDoLists) {
         return indexPath.row == [[self.toDoListsFetchedResultsController fetchedObjects] count] + 1;
-    }else if (indexPath.section == 1){
+    }else if (indexPath.section == AWToDoFilersTableViewSectionToDoContexts){
         return indexPath.row == [[self.toDoContextsFetchedResultsController fetchedObjects] count] + 1;
     }
     return NO;
@@ -224,12 +223,12 @@ return _apiManager;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return section == 0 ? @"ToDo Lists" : @"ToDo Contexts";
+    return section == AWToDoFilersTableViewSectionToDoLists ? @"ToDo Lists" : @"ToDo Contexts";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     id <NSFetchedResultsSectionInfo> sectionInfo;
-    if (section == 0) {
+    if (section == AWToDoFilersTableViewSectionToDoLists) {
         sectionInfo = [[self.toDoListsFetchedResultsController sections] objectAtIndex:0];
     }else{
         sectionInfo = [[self.toDoContextsFetchedResultsController sections] objectAtIndex:0];
@@ -246,14 +245,14 @@ return _apiManager;
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"resetFilterCell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addCell"];
-            cell.textLabel.text = [NSString stringWithFormat:@"All %@", indexPath.section == 0 ? @"lists" : @"contexts"];
+            cell.textLabel.text = [NSString stringWithFormat:@"All %@", indexPath.section == AWToDoFilersTableViewSectionToDoLists ? @"lists" : @"contexts"];
         }
         return cell;
     }else if ([self isAddFilterObjectIndexPath:indexPath]) {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"addFilterObjectCell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"addCell"];
-            cell.textLabel.text = [NSString stringWithFormat:@"Add %@", indexPath.section == 0 ? @"list" : @"context"];
+            cell.textLabel.text = [NSString stringWithFormat:@"Add %@", indexPath.section == AWToDoFilersTableViewSectionToDoLists ? @"list" : @"context"];
         }
         return cell;
     }else{
@@ -270,14 +269,24 @@ return _apiManager;
 
 #pragma mark - Cell Mappings
 
+-(void)prepareCellMappings{
+    RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
+    cellMapping.cellClassName = @"UITableViewCell";
+    cellMapping.reuseIdentifier = @"ToDoFilterCell";
+    [cellMapping mapKeyPath:@"name" toAttribute:@"textLabel.text"];
+    
+    [self.cellMappings setCellMapping:cellMapping forClass:[ToDoList class]];
+    [self.cellMappings setCellMapping:cellMapping forClass:[ToDoContext class]];
+}
+
 - (id)objectForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self isAddFilterObjectIndexPath:indexPath] || [self isResetFilterIndexPath:indexPath]) {
         return nil;
     }
 
-    if (indexPath.section == 0) {
+    if (indexPath.section == AWToDoFilersTableViewSectionToDoLists) {
         return [self.toDoListsFetchedResultsController objectAtIndexPath:[self fetchedResultsIndexPathForIndexPath:indexPath]];
-    }else if(indexPath.section == 1){
+    }else if(indexPath.section == AWToDoFilersTableViewSectionToDoContexts){
         return [self.toDoContextsFetchedResultsController objectAtIndexPath:[self fetchedResultsIndexPathForIndexPath:indexPath]];
     }
     return nil;
@@ -295,9 +304,9 @@ return _apiManager;
      forChangeType:(NSFetchedResultsChangeType)type {
     
     if (controller == self.toDoListsFetchedResultsController) {
-        sectionIndex = 0;
+        sectionIndex = AWToDoFilersTableViewSectionToDoLists;
     }else if(controller == self.toDoContextsFetchedResultsController){
-        sectionIndex = 1;
+        sectionIndex = AWToDoFilersTableViewSectionToDoContexts;
     }
     
     switch (type) {
