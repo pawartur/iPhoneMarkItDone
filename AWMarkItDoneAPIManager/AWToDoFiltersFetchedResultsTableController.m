@@ -30,6 +30,8 @@ typedef enum{
 
 @implementation AWToDoFiltersFetchedResultsTableController
 
+@dynamic delegate;
+
 @synthesize
     apiManager = _apiManager,
     toDoListsFetchedResultsController = _toDoListsFetchedResultsController,
@@ -267,6 +269,12 @@ typedef enum{
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([self.delegate respondsToSelector:@selector(tableController:didSelectToDoFilter:)]) {
+        [self.delegate tableController:self didSelectToDoFilter:[self objectForRowAtIndexPath:indexPath]];
+    }
+}
+
 #pragma mark - Cell Mappings
 
 -(void)prepareCellMappings{
@@ -346,12 +354,7 @@ typedef enum{
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self.tableView reloadRowsAtIndexPaths:@[ adjIndexPath ] withRowAnimation:UITableViewRowAnimationTop];
-            /**
-             TODO: Missing a call to a replacement for configureCell:atIndexPath: which updates
-             the contents of a given cell with the information from a managed object
-             at a given index path in the fetched results controller
-             */
+            [self.tableView reloadRowsAtIndexPaths:@[adjIndexPath] withRowAnimation:UITableViewRowAnimationTop];
             break;
             
         case NSFetchedResultsChangeMove:

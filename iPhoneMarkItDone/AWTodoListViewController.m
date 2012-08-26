@@ -13,6 +13,8 @@
 #import "AWToDoFiltersViewController.h"
 #import "AWCoolFooter.h"
 #import "ToDo.h"
+#import "ToDoList.h"
+#import "ToDoContext.h"
 
 @interface AWTodoListViewController (){
     BOOL _sideMenuInitialized;
@@ -45,9 +47,22 @@
     [super viewDidAppear:animated];
     if (!_sideMenuInitialized) {
         AWToDoFiltersViewController *sideMenuViewController = [[AWToDoFiltersViewController alloc] init];
+        sideMenuViewController.delegate = self;
         [MFSideMenuManager configureWithNavigationController:self.navigationController sideMenuController:sideMenuViewController];
         _sideMenuInitialized = YES;
     }
+}
+
+-(void)viewController:(AWToDoFiltersViewController *)viewController didSelectToDoFilter:(id)toDoFilter{
+    NSString *resourcePath = self.tableController.resourcePath;
+    if ([toDoFilter isKindOfClass:[ToDoList class]]) {
+        resourcePath = [resourcePath stringByAppendingQueryParameters:@{ @"todo_list" : ((ToDoList *)toDoFilter).objectId }];
+    }else if ([toDoFilter isKindOfClass:[ToDoContext class]]){
+        resourcePath = [resourcePath stringByAppendingQueryParameters:@{ @"todo_context" : ((ToDoContext *)toDoFilter).objectId }];
+    }
+    self.tableController.resourcePath = resourcePath;
+    [MFSideMenuManager sharedManager].navigationController.menuState = MFSideMenuStateHidden;
+    [self.tableController loadTable];
 }
 
 @end

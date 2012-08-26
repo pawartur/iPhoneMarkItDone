@@ -7,6 +7,7 @@
 //
 
 #import <RestKit/RestKit.h>
+#import "AWToDoFiltersFetchedResultsTableControllerDelegate.h"
 
 @class AWMarkItDoneAPIManager;
 
@@ -15,6 +16,7 @@
     BOOL _isLoadingToDoContexts;
 }
 
+@property(nonatomic, weak) id<AWToDoFiltersFetchedResultsTableControllerDelegate> delegate;
 @property(nonatomic, strong) AWMarkItDoneAPIManager *apiManager;
 @property(nonatomic, strong) NSFetchedResultsController *toDoListsFetchedResultsController;
 @property(nonatomic, strong) NSFetchedResultsController *toDoContextsFetchedResultsController;

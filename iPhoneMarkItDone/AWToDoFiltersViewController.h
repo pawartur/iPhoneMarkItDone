@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AWToDoFiltersFetchedResultsTableControllerDelegate.h"
+#import "AWToDoFiltersViewControllerDelegate.h"
 
-@interface AWToDoFiltersViewController : UITableViewController
+@interface AWToDoFiltersViewController : UITableViewController <AWToDoFiltersFetchedResultsTableControllerDelegate>
+
+@property(nonatomic, weak)id<AWToDoFiltersViewControllerDelegate> delegate;
 
 @end

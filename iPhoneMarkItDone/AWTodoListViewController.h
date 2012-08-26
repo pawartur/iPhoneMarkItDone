@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AWToDoFiltersViewControllerDelegate.h"
 
-@interface AWTodoListViewController : UITableViewController
+@interface AWTodoListViewController : UITableViewController <AWToDoFiltersViewControllerDelegate>
 
 @end

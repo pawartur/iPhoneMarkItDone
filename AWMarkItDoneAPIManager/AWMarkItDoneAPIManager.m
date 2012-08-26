@@ -14,9 +14,55 @@
 #import "ToDoContext.h"
 #import "ToDoAlert.h"
 
-NSString * const kBaseAPIURLString = @"http://markitdone.dev:8000/";
 
+NSString * const kBaseAPIURLString = @"http://markitdone.dev:8000/";
 NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
+NSString * const kAllToDosURLString = @"/todos";
+NSString * const kAllToDoListsURLString = @"/todos/lists";
+NSString * const kAllToDoContextsURLString = @"/todos/contexts";
+
+RKObjectMappingProviderFetchRequestBlock const kToDoFetchRequestBlock = ^NSFetchRequest*(NSString *resourcePath){
+    NSFetchRequest *fetchRequest;
+    NSPredicate *predicate;
+    RKPathMatcher *matcher = [RKPathMatcher matcherWithPath:resourcePath];
+    NSDictionary *queryArguments = @{};
+    if ([matcher matchesPattern:kAllToDosURLString tokenizeQueryStrings:YES parsedArguments:&queryArguments]){
+        fetchRequest = [ToDo fetchRequest];
+        NSString *toDoListFilter = [queryArguments objectForKey:@"todo_list"];
+        NSString *toDoContextFilter = [queryArguments objectForKey:@"todo_context"];
+        if(toDoListFilter && toDoContextFilter){
+            predicate = [NSPredicate predicateWithFormat:@"toDoList.objectId=%@ AND toDoContext.objectId=%@", toDoListFilter, toDoContextFilter];
+        }else if(toDoListFilter){
+            predicate = [NSPredicate predicateWithFormat:@"toDoList.objectId=%@", toDoListFilter];
+        }else if(toDoContextFilter){
+            predicate = [NSPredicate predicateWithFormat:@"toDoContext.objectId=%@", toDoContextFilter];
+        }
+        if(predicate){
+            fetchRequest.predicate = predicate;
+        }
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastUpdateTime" ascending:NO];
+        fetchRequest.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    }
+    return fetchRequest;
+};
+
+RKObjectMappingProviderFetchRequestBlock const kToDoListFetchRequestBlock = ^NSFetchRequest*(NSString *resourcePath){
+    NSFetchRequest *fetchRequest;
+    if ([resourcePath isEqualToString:kAllToDoListsURLString]){
+        fetchRequest = [ToDoList fetchRequest];
+        fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    }
+    return fetchRequest;
+};
+
+RKObjectMappingProviderFetchRequestBlock const kToDoContextFetchRequestBlock = ^NSFetchRequest*(NSString *resourcePath){
+    NSFetchRequest *fetchRequest;
+    if ([resourcePath isEqualToString:kAllToDoContextsURLString]){
+        fetchRequest = [ToDoContext fetchRequest];
+        fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    }
+    return fetchRequest;
+};
 
 
 @interface AWMarkItDoneAPIManager ()
@@ -67,41 +113,25 @@ NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
 
 #pragma mark - Helpers
 
--(void)setUpToDoMapping{
-    RKObjectMappingProviderFetchRequestBlock toDoFetchRequestBlock = ^NSFetchRequest*(NSString *resourcePath){
-        NSFetchRequest *fetchRequest = [ToDo fetchRequest];
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastUpdateTime" ascending:NO];
-        fetchRequest.sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-        return fetchRequest;
-    };
-    
+-(void)setUpToDoMapping{   
     RKObjectMapping *toDoMapping = [ToDo mappingInManagedObjectStore:self.objectManager.objectStore];
-    
     [self.objectManager.mappingProvider setObjectMapping:toDoMapping
                              forResourcePathPattern:@"/todos"
-                              withFetchRequestBlock:toDoFetchRequestBlock];
+                              withFetchRequestBlock:kToDoFetchRequestBlock];
 }
 
--(void)setUpToDoListMapping{
-    RKObjectMappingProviderFetchRequestBlock toDoListFetchRequestBlock = ^NSFetchRequest*(NSString *resourcePath){
-        NSFetchRequest *fetchRequest = [ToDoList fetchRequest];
-        fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-        return fetchRequest;
-    };
-    
+-(void)setUpToDoListMapping{    
     RKObjectMapping *toDoListMapping = [ToDoList mappingInManagedObjectStore:self.objectManager.objectStore];
-    [self.objectManager.mappingProvider setObjectMapping:toDoListMapping forResourcePathPattern:@"todos/lists" withFetchRequestBlock:toDoListFetchRequestBlock];
+    [self.objectManager.mappingProvider setObjectMapping:toDoListMapping
+                                  forResourcePathPattern:@"todos/lists"
+                                   withFetchRequestBlock:kToDoListFetchRequestBlock];
 }
 
--(void)setUpToDoContextMapping{
-    RKObjectMappingProviderFetchRequestBlock toDoContextFetchRequestBlock = ^NSFetchRequest*(NSString *resourcePath){
-        NSFetchRequest *fetchRequest = [ToDoContext fetchRequest];
-        fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-        return fetchRequest;
-    };
-    
+-(void)setUpToDoContextMapping{   
     RKObjectMapping *toDoContextMapping = [ToDoContext mappingInManagedObjectStore:self.objectManager.objectStore];
-    [self.objectManager.mappingProvider setObjectMapping:toDoContextMapping forResourcePathPattern:@"todos/contexts" withFetchRequestBlock:toDoContextFetchRequestBlock];
+    [self.objectManager.mappingProvider setObjectMapping:toDoContextMapping
+                                  forResourcePathPattern:@"todos/contexts"
+                                   withFetchRequestBlock:kToDoContextFetchRequestBlock];
 }
 
 -(AWToDoListFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController{

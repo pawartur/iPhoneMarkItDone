@@ -9,8 +9,10 @@
 #import "MFSideMenu.h"
 #import "AWToDoFiltersViewController.h"
 #import "AWToDoFiltersFetchedResultsTableController.h"
+#import "AWToDoListFetchedResultsTableController.h"
 #import "AWMarkItDoneAPIManager.h"
 #import "ToDoList.h"
+#import "ToDoContext.h"
 
 @interface AWToDoFiltersViewController ()
 
@@ -29,9 +31,7 @@
 {
     [super viewDidLoad];
     self.tableController = [self.apiManager fetchedResultsTableControllerForToFoFiltersViewController:self];
-    
-    [self.apiManager loadToDoListsWithCallback:nil];
-    [self.apiManager LoadToDoContextsWithCallback:nil];
+    self.tableController.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -46,6 +46,12 @@
         _apiManager = [AWMarkItDoneAPIManager sharedManager];
     }
     return _apiManager;
+}
+
+-(void)tableController:(AWToDoFiltersFetchedResultsTableController *)tableController didSelectToDoFilter:(id)toDoFilter{
+    if ([self.delegate respondsToSelector:@selector(viewController:didSelectToDoFilter:)]) {
+        [self.delegate viewController:self didSelectToDoFilter:toDoFilter];
+    }
 }
 
 @end
