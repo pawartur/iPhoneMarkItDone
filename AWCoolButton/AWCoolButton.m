@@ -4,6 +4,7 @@
 //
 //  Created by Artur Wdowiarski on 6/17/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Based on http://www.raywenderlich.com/2134/core-graphics-101-glossy-buttons
 //
 
 #import "AWCoolButton.h"
@@ -15,7 +16,8 @@
 @synthesize saturation = _saturation;
 @synthesize brightness = _brightness;
 
--(id)initWithCoder:(NSCoder *)aDecoder {
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
     if ((self = [super initWithCoder:aDecoder])) {
         self.opaque = NO;
         self.backgroundColor = [UIColor clearColor];
@@ -26,7 +28,7 @@
     return self;
 }
 
--(void)drawRect:(CGRect)rect
+- (void)drawRect:(CGRect)rect
 {
     // Differ the brightness in the selected state
     CGFloat actualBrightness = _brightness;
@@ -138,7 +140,7 @@
     [self setNeedsDisplay];
 }
 
--(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     [self setNeedsDisplay];
 }

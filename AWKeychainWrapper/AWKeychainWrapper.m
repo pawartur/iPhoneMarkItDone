@@ -4,6 +4,7 @@
 //
 //  Created by Artur Wdowiarski on 7/23/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Based on http://www.raywenderlich.com/6475/basic-security-in-ios-5-tutorial-part-1
 //
 
 #import "AWKeychainWrapper.h"
@@ -11,7 +12,8 @@
 
 @implementation AWKeychainWrapper
 
-+ (NSMutableDictionary *)setupSearchDirectoryForIdentifier:(NSString *)identifier {
++ (NSMutableDictionary *)setupSearchDirectoryForIdentifier:(NSString *)identifier
+{
     NSMutableDictionary *searchDictionary = [[NSMutableDictionary alloc] init];  
     [searchDictionary setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
     [searchDictionary setObject:APP_NAME forKey:(__bridge id)kSecAttrService];

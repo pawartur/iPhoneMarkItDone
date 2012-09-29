@@ -4,6 +4,7 @@
 //
 //  Created by Artur Wdowiarski on 6/16/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Based on code from http://www.raywenderlich.com
 //
 
 #import <Foundation/Foundation.h>

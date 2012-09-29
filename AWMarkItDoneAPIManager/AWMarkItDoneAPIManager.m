@@ -87,7 +87,8 @@ RKObjectMappingProviderFetchRequestBlock const kToDoContextFetchRequestBlock = ^
 
 #pragma mark - Class Methods
 
-+(AWMarkItDoneAPIManager *)sharedManager{
++ (AWMarkItDoneAPIManager *)sharedManager
+{
     static dispatch_once_t onceToken;
     static AWMarkItDoneAPIManager *manager = nil;
     dispatch_once(&onceToken, ^{
@@ -113,28 +114,32 @@ RKObjectMappingProviderFetchRequestBlock const kToDoContextFetchRequestBlock = ^
 
 #pragma mark - Helpers
 
--(void)setUpToDoMapping{   
+- (void)setUpToDoMapping
+{
     RKObjectMapping *toDoMapping = [ToDo mappingInManagedObjectStore:self.objectManager.objectStore];
     [self.objectManager.mappingProvider setObjectMapping:toDoMapping
                              forResourcePathPattern:@"/todos"
                               withFetchRequestBlock:kToDoFetchRequestBlock];
 }
 
--(void)setUpToDoListMapping{    
+- (void)setUpToDoListMapping
+{
     RKObjectMapping *toDoListMapping = [ToDoList mappingInManagedObjectStore:self.objectManager.objectStore];
     [self.objectManager.mappingProvider setObjectMapping:toDoListMapping
                                   forResourcePathPattern:@"todos/lists"
                                    withFetchRequestBlock:kToDoListFetchRequestBlock];
 }
 
--(void)setUpToDoContextMapping{   
+- (void)setUpToDoContextMapping
+{
     RKObjectMapping *toDoContextMapping = [ToDoContext mappingInManagedObjectStore:self.objectManager.objectStore];
     [self.objectManager.mappingProvider setObjectMapping:toDoContextMapping
                                   forResourcePathPattern:@"todos/contexts"
                                    withFetchRequestBlock:kToDoContextFetchRequestBlock];
 }
 
--(AWToDoListFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController{
+- (AWToDoListFetchedResultsTableController *)fetchedResultsTableControllerForToDoListViewController:(AWTodoListViewController *)viewController
+{
     AWToDoListFetchedResultsTableController *frtc = [[AWToDoListFetchedResultsTableController alloc] initWithTableView:viewController.tableView viewController:viewController];
     frtc.objectManager = self.objectManager;
     
@@ -155,7 +160,8 @@ RKObjectMappingProviderFetchRequestBlock const kToDoContextFetchRequestBlock = ^
     return frtc;
 }
 
--(AWToDoFiltersFetchedResultsTableController *)fetchedResultsTableControllerForToFoFiltersViewController:(AWToDoFiltersViewController *)viewController{
+- (AWToDoFiltersFetchedResultsTableController *)fetchedResultsTableControllerForToFoFiltersViewController:(AWToDoFiltersViewController *)viewController
+{
     AWToDoFiltersFetchedResultsTableController *frtc = [[AWToDoFiltersFetchedResultsTableController alloc] initWithTableView:viewController.tableView viewController:viewController];
     frtc.objectManager = self.objectManager;
     
@@ -167,19 +173,22 @@ RKObjectMappingProviderFetchRequestBlock const kToDoContextFetchRequestBlock = ^
 
 #pragma mark - Accessors
 
--(void)setPassword:(NSString *)password{
+- (void)setPassword:(NSString *)password
+{
     _password = password;
     self.objectManager.client.password = password;
 }
 
--(void)setUsername:(NSString *)username{
+- (void)setUsername:(NSString *)username
+{
     _username = username;
     self.objectManager.client.username = username;
 }
 
 #pragma mark - API Calls
 
--(void)authenticate{
+- (void)authenticate
+{
     [self.objectManager loadObjectsAtResourcePath:kAuthenticateURLString usingBlock:^(RKObjectLoader *loader){
         loader.onDidLoadResponse = ^(RKResponse *response){
             int statusCode = response.statusCode;
@@ -195,7 +204,8 @@ RKObjectMappingProviderFetchRequestBlock const kToDoContextFetchRequestBlock = ^
 }
 
 // TODO: The following two methods need to be generilized, since they differ by only one NSString...
--(void)loadToDoListsWithCallback:(void (^)(NSArray *))callback{
+- (void)loadToDoListsWithCallback:(void (^)(NSArray *))callback
+{
     RKObjectLoader *loader = [self.objectManager loaderWithResourcePath:@"todos/lists"];
     loader.onDidLoadObjects = ^(NSArray *objects){
         if (callback) {
@@ -205,7 +215,8 @@ RKObjectMappingProviderFetchRequestBlock const kToDoContextFetchRequestBlock = ^
     [loader.queue addRequest:loader];
 }
 
--(void)LoadToDoContextsWithCallback:(void (^)(NSArray *))callback{
+- (void)LoadToDoContextsWithCallback:(void (^)(NSArray *))callback
+{
     RKObjectLoader *loader = [self.objectManager loaderWithResourcePath:@"todos/contexts"];
     loader.onDidLoadObjects = ^(NSArray *objects){
         if (callback) {

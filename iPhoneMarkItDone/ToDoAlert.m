@@ -16,7 +16,8 @@
 @dynamic objectId;
 @dynamic toDo;
 
-+(RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore{
++ (RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore
+{
     RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForClass:self inManagedObjectStore:objectStore];
     
     [mapping mapKeyPath:@"id" toAttribute:@"objectId"];

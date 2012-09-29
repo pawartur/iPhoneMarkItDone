@@ -27,7 +27,8 @@ NSString * const kLoginActionName = @"Login";
 @synthesize usernameTextField = _usernameTextField;
 @synthesize passwordTextField = _passwordTextField;
 
--(void)viewDidLoad{
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.apiManager = [AWMarkItDoneAPIManager sharedManager];
     self.apiManager.delegate = self;
@@ -35,7 +36,8 @@ NSString * const kLoginActionName = @"Login";
     self.passwordTextField.delegate = self;
 }
 
--(void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated
+{
     [super viewDidAppear:animated];
     
     NSString *savedUsername = [AWKeychainWrapper keychainStringFromMatchingIdentifier:SAVED_USERNAME];
@@ -51,7 +53,8 @@ NSString * const kLoginActionName = @"Login";
     [self.apiManager authenticate];
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
     [self setInfoLabel:nil];
     [self setActionButton:nil];
     [self setUsernameTextField:nil];
@@ -62,7 +65,8 @@ NSString * const kLoginActionName = @"Login";
 
 #pragma mark - AWMarkItDoneAPIManagerDelegate Methods
 
--(void)markItDoneAPIManagerDidAuthenticate:(AWMarkItDoneAPIManager *)manager{
+- (void)markItDoneAPIManagerDidAuthenticate:(AWMarkItDoneAPIManager *)manager
+{
     [self performSegueWithIdentifier:@"showTodos" sender:self];
 }
 
@@ -72,7 +76,9 @@ NSString * const kLoginActionName = @"Login";
 }
 
 #pragma mark - UITextFieldDelegate Methods
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
     return NO;
 }
@@ -80,7 +86,8 @@ NSString * const kLoginActionName = @"Login";
 
 #pragma mark - IB Actions
 
--(void)makeAction:(UIButton *)sender{
+- (void)makeAction:(UIButton *)sender
+{
     NSString *actionName = self.actionButton.titleLabel.text;
     if ([actionName isEqualToString:kLoginActionName]) {
         NSString *username = self.usernameTextField.text;
@@ -98,7 +105,8 @@ NSString * const kLoginActionName = @"Login";
 }
 
 #pragma mark - Custom Methods
--(void)prepareForLogin{
+- (void)prepareForLogin
+{
     self.infoLabel.hidden = YES;
     self.usernameTextField.hidden = NO;
     self.passwordTextField.hidden = NO;
@@ -109,7 +117,8 @@ NSString * const kLoginActionName = @"Login";
     self.actionButton.brightness = 0.67;
 }
 
--(void)showInfo:(NSString *)info forFurtherActionWithName:(NSString *)furtherActionName{
+- (void)showInfo:(NSString *)info forFurtherActionWithName:(NSString *)furtherActionName
+{
     self.usernameTextField.hidden = YES;
     self.passwordTextField.hidden = YES;
     self.actionButton.hidden = NO;

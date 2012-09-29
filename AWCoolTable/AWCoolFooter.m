@@ -4,6 +4,7 @@
 //
 //  Created by Artur Wdowiarski on 6/17/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Based on http://www.raywenderlich.com/2106/core-graphics-101-arcs-and-paths
 //
 
 #import "AWCoolFooter.h"
@@ -14,7 +15,8 @@
 @synthesize lightColor = _lightColor;
 @synthesize darkColor = _darkColor;
 
-- (id)init {
+- (id)init
+{
     if ((self = [super init])) {
         // Init self
         self.backgroundColor = [UIColor clearColor];
@@ -63,7 +65,8 @@
     CGContextStrokeRect(context, rectFor1PxStroke(_coloredBoxRect));
 }
 
--(void) layoutSubviews {
+- (void) layoutSubviews
+{
     CGFloat coloredBoxMargin = 6.0;
     CGFloat coloredBoxHeight = 40.0;
     

@@ -37,7 +37,8 @@ typedef enum{
     toDoListsFetchedResultsController = _toDoListsFetchedResultsController,
     toDoContextsFetchedResultsController = _toDoContextsFetchedResultsController;
 
--(id)init{
+- (id)init
+{
     if (self = [super init]) {
         [self prepareCellMappings];
     }
@@ -46,14 +47,16 @@ typedef enum{
 
 #pragma mark - Accessors
 
--(AWMarkItDoneAPIManager *)apiManager{
+- (AWMarkItDoneAPIManager *)apiManager
+{
     if (!_apiManager) {
         _apiManager = [AWMarkItDoneAPIManager sharedManager];
     }
     return _apiManager;
 }
 
--(NSFetchedResultsController *)toDoListsFetchedResultsController{
+- (NSFetchedResultsController *)toDoListsFetchedResultsController
+{
     if (!_toDoListsFetchedResultsController) {
         _toDoListsFetchedResultsController = [ToDoList fetchAllSortedBy:@"name" ascending:YES withPredicate:nil groupBy:nil];
         _toDoListsFetchedResultsController.delegate = self;
@@ -61,7 +64,8 @@ typedef enum{
     return _toDoListsFetchedResultsController;
 }
 
--(NSFetchedResultsController *)toDoContextsFetchedResultsController{
+- (NSFetchedResultsController *)toDoContextsFetchedResultsController
+{
     if (!_toDoContextsFetchedResultsController) {
         _toDoContextsFetchedResultsController = [ToDoContext fetchAllSortedBy:@"name" ascending:YES withPredicate:nil groupBy:nil];
         _toDoContextsFetchedResultsController.delegate = self;
@@ -72,11 +76,13 @@ typedef enum{
 
 #pragma mark - Helpers
 
-- (NSIndexPath *)fetchedResultsIndexPathForIndexPath:(NSIndexPath *)indexPath {
+- (NSIndexPath *)fetchedResultsIndexPathForIndexPath:(NSIndexPath *)indexPath
+{
     return [NSIndexPath indexPathForRow:indexPath.row-1 inSection:0];
 }
 
-- (NSIndexPath *)indexPathForForFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController andFetchedResultsIndexPath:(NSIndexPath *)indexPath {
+- (NSIndexPath *)indexPathForForFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController andFetchedResultsIndexPath:(NSIndexPath *)indexPath
+{
     if (fetchedResultsController == self.toDoListsFetchedResultsController) {
         return [NSIndexPath indexPathForRow:indexPath.row+1 inSection:AWToDoFilersTableViewSectionToDoLists];
     }else if(fetchedResultsController == self.toDoContextsFetchedResultsController){
@@ -85,11 +91,13 @@ typedef enum{
     return nil;
 }
 
--(BOOL)isResetFilterIndexPath:(NSIndexPath *)indexPath{
+- (BOOL)isResetFilterIndexPath:(NSIndexPath *)indexPath
+{
     return indexPath.row == 0;
 }
 
--(BOOL)isAddFilterObjectIndexPath:(NSIndexPath *)indexPath{
+- (BOOL)isAddFilterObjectIndexPath:(NSIndexPath *)indexPath
+{
     if (indexPath.section == AWToDoFilersTableViewSectionToDoLists) {
         return indexPath.row == [[self.toDoListsFetchedResultsController fetchedObjects] count] + 1;
     }else if (indexPath.section == AWToDoFilersTableViewSectionToDoContexts){
@@ -100,17 +108,20 @@ typedef enum{
 
 #pragma mark - KVO & Table States
 
--(BOOL)isLoading{
+- (BOOL)isLoading
+{
     return _isLoadingToDoContexts || _isLoadingToDoContexts;
 }
 
-- (BOOL)isConsideredEmpty {
+- (BOOL)isConsideredEmpty
+{
     return [[self.toDoListsFetchedResultsController fetchedObjects] count] == [[self.toDoContextsFetchedResultsController fetchedObjects] count] == 0;
 }
 
 #pragma mark - Pull To Refresh
 
-- (void)pullToRefreshStateChanged:(UIGestureRecognizer *)gesture {
+- (void)pullToRefreshStateChanged:(UIGestureRecognizer *)gesture
+{
     if (gesture.state == UIGestureRecognizerStateRecognized) {
         if ([self pullToRefreshDataSourceIsLoading:gesture])
             return;
@@ -133,7 +144,8 @@ typedef enum{
 
 #pragma mark - Public
 
-- (void)loadTable {
+- (void)loadTable
+{
     [self didStartLoad];
     
     BOOL success;
@@ -160,7 +172,8 @@ typedef enum{
 
 #pragma mark - Managing Sections
 
-- (UITableViewCell *)cellForObjectAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)cellForObjectAtIndexPath:(NSIndexPath *)indexPath
+{
     id mappableObject = [self objectForRowAtIndexPath:indexPath];
     
     RKTableViewCellMapping* cellMapping = [self.cellMappings cellMappingForObject:mappableObject];
@@ -182,7 +195,8 @@ typedef enum{
     return cell;
 }
 
-- (NSIndexPath *)indexPathForObject:(id)object {
+- (NSIndexPath *)indexPathForObject:(id)object
+{
     if ([object isKindOfClass:[NSManagedObject class]]) {
         NSIndexPath *indexPath;
         NSFetchedResultsController *fetchedResultsController;
@@ -200,21 +214,25 @@ typedef enum{
     return nil;
 }
 
-- (UITableViewCell *)cellForObject:(id)object {
+- (UITableViewCell *)cellForObject:(id)object
+{
     return [self cellForObjectAtIndexPath:[self indexPathForObject:object]];
 }
 
 #pragma mark - Table View Delegate and Data Source Methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView*)theTableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)theTableView
+{
     return 2;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     return 44;
 }
 
-- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
     CGFloat headerHeight = [self tableView:tableView heightForHeaderInSection:section];
     
     AWToDoFilterSectionHeaderView *headerView = [[AWToDoFilterSectionHeaderView alloc] initWithFrame:CGRectMake(0, 0, 360, headerHeight)];
@@ -224,11 +242,13 @@ typedef enum{
     return headerView;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
     return section == AWToDoFilersTableViewSectionToDoLists ? @"ToDo Lists" : @"ToDo Contexts";
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     id <NSFetchedResultsSectionInfo> sectionInfo;
     if (section == AWToDoFilersTableViewSectionToDoLists) {
         sectionInfo = [[self.toDoListsFetchedResultsController sections] objectAtIndex:0];
@@ -238,7 +258,8 @@ typedef enum{
     return [sectionInfo numberOfObjects] + 2;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell;
     RKTableViewCellMapping *cellMapping;
     id mappableObject;
@@ -269,7 +290,8 @@ typedef enum{
     }
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if ([self.delegate respondsToSelector:@selector(tableController:didSelectToDoFilter:)]) {
         [self.delegate tableController:self didSelectToDoFilter:[self objectForRowAtIndexPath:indexPath]];
     }
@@ -277,7 +299,8 @@ typedef enum{
 
 #pragma mark - Cell Mappings
 
--(void)prepareCellMappings{
+- (void)prepareCellMappings
+{
     RKTableViewCellMapping *cellMapping = [RKTableViewCellMapping cellMapping];
     cellMapping.cellClassName = @"UITableViewCell";
     cellMapping.reuseIdentifier = @"ToDoFilterCell";
@@ -287,7 +310,8 @@ typedef enum{
     [self.cellMappings setCellMapping:cellMapping forClass:[ToDoContext class]];
 }
 
-- (id)objectForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (id)objectForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if ([self isAddFilterObjectIndexPath:indexPath] || [self isResetFilterIndexPath:indexPath]) {
         return nil;
     }
@@ -302,14 +326,16 @@ typedef enum{
 
 #pragma mark - NSFetchedResultsControllerDelegate methods
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController*)controller {   
+- (void)controllerWillChangeContent:(NSFetchedResultsController*)controller
+{
     [self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController*)controller
   didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex
-     forChangeType:(NSFetchedResultsChangeType)type {
+     forChangeType:(NSFetchedResultsChangeType)type
+{
     
     if (controller == self.toDoListsFetchedResultsController) {
         sectionIndex = AWToDoFilersTableViewSectionToDoLists;
@@ -337,7 +363,8 @@ typedef enum{
    didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath
      forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath {
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
     
     NSIndexPath* adjIndexPath = [self indexPathForForFetchedResultsController:controller andFetchedResultsIndexPath:indexPath];
     NSIndexPath* adjNewIndexPath = [self indexPathForForFetchedResultsController:controller andFetchedResultsIndexPath:newIndexPath];
@@ -370,7 +397,8 @@ typedef enum{
     }
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController*)controller {
+- (void)controllerDidChangeContent:(NSFetchedResultsController*)controller
+{
     [self.tableView endUpdates];
     [self didFinishLoad];
 }

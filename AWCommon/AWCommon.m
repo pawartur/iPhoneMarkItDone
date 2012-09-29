@@ -4,11 +4,13 @@
 //
 //  Created by Artur Wdowiarski on 6/16/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Based on code from http://www.raywenderlich.com
 //
 
 #import "AWCommon.h"
 
-void drawLinearGradient(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor){
+void drawLinearGradient(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor)
+{
     // Get the RGB color space for our device
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     
@@ -48,7 +50,8 @@ void drawLinearGradient(CGContextRef context, CGRect rect, CGColorRef startColor
     CGColorSpaceRelease(colorSpace);
 }
 
-void drawGlossAndGradient(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor) {
+void drawGlossAndGradient(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor)
+{
     // First drow the gradient
     drawLinearGradient(context, rect, startColor, endColor);
     
@@ -64,7 +67,8 @@ void drawGlossAndGradient(CGContextRef context, CGRect rect, CGColorRef startCol
     
 }
 
-void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, CGColorRef color) {
+void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, CGColorRef color)
+{
     // Save the CG context state before drawing
     CGContextSaveGState(context);
     
@@ -91,14 +95,16 @@ void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, C
 }
 
 
-CGRect rectFor1PxStroke(CGRect rect) {
+CGRect rectFor1PxStroke(CGRect rect)
+{
     // When Core Graphics strokes a path, it draws the stroke on the middle of the exact edge of the path.
     // We modify the rectangle so the edge is halfway through the inside pixel of the original rectangle,
     // so the stroke behavior works correctly.
     return CGRectMake(rect.origin.x + 0.5, rect.origin.y + 0.5, rect.size.width - 1, rect.size.height - 1);
 }
 
-CGMutablePathRef createArcPathFromBottomOfRect(CGRect rect, CGFloat arcHeight) {
+CGMutablePathRef createArcPathFromBottomOfRect(CGRect rect, CGFloat arcHeight)
+{
     // Calculate the rectangle in which the arc is going to be drawn
     // (This is the smallest rectangle that you have to subtract from 
     // the original rectangle in order to have the differenca that is
@@ -135,7 +141,8 @@ CGMutablePathRef createArcPathFromBottomOfRect(CGRect rect, CGFloat arcHeight) {
     return path;    
 }
 
-CGMutablePathRef createRoundedRectForRect(CGRect rect, CGFloat radius) {
+CGMutablePathRef createRoundedRectForRect(CGRect rect, CGFloat radius)
+{
     // Create a path for our rounded rect
     CGMutablePathRef path = CGPathCreateMutable();
     

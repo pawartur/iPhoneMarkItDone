@@ -37,13 +37,15 @@
     [self setupSideMenuBarButtonItem];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     [self.tableController loadTable];
     
 }
 
--(void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated
+{
     [super viewDidAppear:animated];
     if (!_sideMenuInitialized) {
         AWToDoFiltersViewController *sideMenuViewController = [[AWToDoFiltersViewController alloc] init];
@@ -53,7 +55,8 @@
     }
 }
 
--(void)viewController:(AWToDoFiltersViewController *)viewController didSelectToDoFilter:(id)toDoFilter{
+- (void)viewController:(AWToDoFiltersViewController *)viewController didSelectToDoFilter:(id)toDoFilter
+{
     NSString *resourcePath = self.tableController.resourcePath;
     if ([toDoFilter isKindOfClass:[ToDoList class]]) {
         resourcePath = [resourcePath stringByAppendingQueryParameters:@{ @"todo_list" : ((ToDoList *)toDoFilter).objectId }];

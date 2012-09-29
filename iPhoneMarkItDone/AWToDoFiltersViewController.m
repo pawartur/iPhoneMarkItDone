@@ -41,14 +41,16 @@
 
 #pragma mark - Accessors
 
--(AWMarkItDoneAPIManager *)apiManager{
+- (AWMarkItDoneAPIManager *)apiManager
+{
     if (!_apiManager) {
         _apiManager = [AWMarkItDoneAPIManager sharedManager];
     }
     return _apiManager;
 }
 
--(void)tableController:(AWToDoFiltersFetchedResultsTableController *)tableController didSelectToDoFilter:(id)toDoFilter{
+- (void)tableController:(AWToDoFiltersFetchedResultsTableController *)tableController didSelectToDoFilter:(id)toDoFilter
+{
     if ([self.delegate respondsToSelector:@selector(viewController:didSelectToDoFilter:)]) {
         [self.delegate viewController:self didSelectToDoFilter:toDoFilter];
     }

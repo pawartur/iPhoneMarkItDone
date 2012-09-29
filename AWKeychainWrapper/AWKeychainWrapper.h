@@ -4,6 +4,7 @@
 //
 //  Created by Artur Wdowiarski on 7/23/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Based on http://www.raywenderlich.com/6475/basic-security-in-ios-5-tutorial-part-1
 //
 
 #import <Foundation/Foundation.h>

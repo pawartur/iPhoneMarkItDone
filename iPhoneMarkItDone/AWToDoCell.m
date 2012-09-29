@@ -13,7 +13,8 @@
 
 @synthesize nameLabel = _nameLabel;
 
--(void)awakeFromNib{
+- (void)awakeFromNib
+{
     self.backgroundView = [[AWCoolCellBackground alloc] init];
     self.selectedBackgroundView = [[AWCoolCellBackground alloc] init];
     ((AWCoolCellBackground*)self.selectedBackgroundView).selected = YES;

@@ -17,7 +17,8 @@
 @dynamic objectId;
 @dynamic toDos;
 
-+(RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore{
++ (RKManagedObjectMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)objectStore
+{
     RKManagedObjectMapping *mapping = [RKManagedObjectMapping mappingForClass:self inManagedObjectStore:objectStore];
     
     [mapping mapKeyPath:@"id" toAttribute:@"objectId"];
@@ -30,7 +31,8 @@
     return mapping;
 }
 
--(void)awakeFromInsert{
+- (void)awakeFromInsert
+{
     [super awakeFromInsert];
     [self setValue:@"ToDo Context" forKey:@"type"];
 }
