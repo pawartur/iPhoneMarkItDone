@@ -10,7 +10,6 @@
 #import "AWKeychainWrapper.h"
 #import "AWConstants.h"
 
-NSString * const kNetworkErrorMessage = @"Failed to check Your username and password. Pleace, check You network connection.";
 NSString * const kRetryLoginActionName = @"Retry Login";
 NSString * const kLoginActionName = @"Login";
 
@@ -67,12 +66,9 @@ NSString * const kLoginActionName = @"Login";
     [self performSegueWithIdentifier:@"showTodos" sender:self];
 }
 
--(void)markItDoneAPIManagerDidFailToAuthenticate:(AWMarkItDoneAPIManager *)manager{
-    [self performSegueWithIdentifier:@"showLoginScreen" sender:self];
-}
-
--(void)markItDoneAPIManagerDidFailWithError:(NSError *)error{
-    [self showInfo:kNetworkErrorMessage forFurtherActionWithName:kRetryLoginActionName];
+- (void)markItDoneAPIManager:(AWMarkItDoneAPIManager *)manager didFailWithError:(NSError *)error
+{
+    [self showInfo:[error localizedDescription] forFurtherActionWithName:kRetryLoginActionName];
 }
 
 #pragma mark - UITextFieldDelegate Methods

@@ -13,7 +13,6 @@
 @protocol AWMarkItDoneAPIManagerDelegate <NSObject>
 
 -(void)markItDoneAPIManagerDidAuthenticate:(AWMarkItDoneAPIManager *)manager;
--(void)markItDoneAPIManagerDidFailToAuthenticate:(AWMarkItDoneAPIManager *)manager;
--(void)markItDoneAPIManagerDidFailWithError:(NSError *)error;
+-(void)markItDoneAPIManager:(AWMarkItDoneAPIManager *)manager didFailWithError:(NSError *)error;
 
 @end

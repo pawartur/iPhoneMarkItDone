@@ -15,7 +15,7 @@
 #import "ToDoAlert.h"
 
 
-NSString * const kBaseAPIURLString = @"http://markitdone.dev:8000/";
+NSString * const kBaseAPIURLString = @"http://markitdone.com/";
 NSString * const kAuthenticateURLString = @"/accounts/authenticate/";
 NSString * const kAllToDosURLString = @"/todos";
 NSString * const kAllToDoListsURLString = @"/todos/lists";
@@ -185,13 +185,10 @@ RKObjectMappingProviderFetchRequestBlock const kToDoContextFetchRequestBlock = ^
             int statusCode = response.statusCode;
             if (statusCode == 204 && [self.delegate respondsToSelector:@selector(markItDoneAPIManagerDidAuthenticate:)]) {
                 [self.delegate markItDoneAPIManagerDidAuthenticate:self];
-            }else if (statusCode == 401 && [self.delegate respondsToSelector:@selector(markItDoneAPIManagerDidFailToAuthenticate:)]){
-                [self.delegate markItDoneAPIManagerDidFailToAuthenticate:self];
-            }
-        };
+            }        };
         loader.onDidFailWithError = ^(NSError *error){
-            if ([self.delegate respondsToSelector:@selector(markItDoneAPIManagerDidFailWithError:)]) {
-                [self.delegate markItDoneAPIManagerDidFailWithError:error];
+            if ([self.delegate respondsToSelector:@selector(markItDoneAPIManager:didFailWithError:)]) {
+                [self.delegate markItDoneAPIManager:self didFailWithError:error];
             }
         };
     }];
