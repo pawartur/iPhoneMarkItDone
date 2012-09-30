@@ -19,6 +19,7 @@
 		754C3E7615D3D5F4003DAF15 /* ToDoContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 754C3E7515D3D5F4003DAF15 /* ToDoContext.m */; };
 		754C3E7915D3D618003DAF15 /* ToDoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 754C3E7815D3D618003DAF15 /* ToDoList.m */; };
 		7554443015C72A1E00CEEF4A /* AWToDoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7554442F15C72A1E00CEEF4A /* AWToDoCell.m */; };
+		755D81B61618B9DD003128F3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 755D81B51618B9DD003128F3 /* README.md */; };
 		75782E1D15C556D0009DE488 /* MarkItDone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75782E1B15C556D0009DE488 /* MarkItDone.xcdatamodeld */; };
 		75782E4B15C56020009DE488 /* ToDoAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E4A15C56020009DE488 /* ToDoAlert.m */; };
 		75782E4E15C56020009DE488 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 75782E4D15C56020009DE488 /* ToDo.m */; };
@@ -121,6 +122,7 @@
 		754C3E7815D3D618003DAF15 /* ToDoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoList.m; sourceTree = "<group>"; };
 		7554442E15C72A1E00CEEF4A /* AWToDoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWToDoCell.h; sourceTree = "<group>"; };
 		7554442F15C72A1E00CEEF4A /* AWToDoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWToDoCell.m; sourceTree = "<group>"; };
+		755D81B51618B9DD003128F3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		75782E1C15C556D0009DE488 /* MarkItDone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarkItDone.xcdatamodel; sourceTree = "<group>"; };
 		75782E4915C56020009DE488 /* ToDoAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoAlert.h; sourceTree = "<group>"; };
 		75782E4A15C56020009DE488 /* ToDoAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoAlert.m; sourceTree = "<group>"; };
@@ -312,12 +314,13 @@
 				75782E3615C55C4E009DE488 /* Models */,
 				7554442D15C729D100CEEF4A /* Views */,
 				75E0638815BF234700D9D625 /* ViewControllers */,
+				75CE97E915BB2CEB0043D3FC /* Supporting Files */,
 				75E0639415BF24CC00D9D625 /* AWConstants.h */,
 				75CE97F115BB2CEB0043D3FC /* AWAppDelegate.h */,
 				75CE97F215BB2CEB0043D3FC /* AWAppDelegate.m */,
 				75CE97F415BB2CEB0043D3FC /* MainStoryboard.storyboard */,
 				75782E1B15C556D0009DE488 /* MarkItDone.xcdatamodeld */,
-				75CE97E915BB2CEB0043D3FC /* Supporting Files */,
+				755D81B51618B9DD003128F3 /* README.md */,
 			);
 			path = iPhoneMarkItDone;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				75E0D88C15D1295F0007646D /* back-arrow@2x.png in Resources */,
 				75E0D88D15D1295F0007646D /* menu-icon.png in Resources */,
 				75E0D88E15D1295F0007646D /* menu-icon@2x.png in Resources */,
+				755D81B61618B9DD003128F3 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
