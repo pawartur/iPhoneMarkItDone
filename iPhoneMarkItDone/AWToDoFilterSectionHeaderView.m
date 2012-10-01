@@ -39,9 +39,9 @@
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGColorRef lightColor = [[UIColor colorWithRed:0.0/255.0 green:7.0/255.0 blue:7.0/255.0 alpha:1.0] CGColor];
-    CGColorRef darkColor = [[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0] CGColor];
-    drawGlossAndGradient(context, self.bounds, lightColor, darkColor);
+    UIColor *lightColor = [UIColor colorWithRed:0.0/255.0 green:7.0/255.0 blue:7.0/255.0 alpha:1.0];
+    UIColor *darkColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
+    drawGlossAndGradient(context, self.bounds, lightColor.CGColor, darkColor.CGColor);
 }
 
 @end

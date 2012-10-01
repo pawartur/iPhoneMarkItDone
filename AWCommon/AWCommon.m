@@ -56,14 +56,14 @@ void drawGlossAndGradient(CGContextRef context, CGRect rect, CGColorRef startCol
     drawLinearGradient(context, rect, startColor, endColor);
     
     // Now we'll emulate gloss by applying a gradient alpha mask
-    CGColorRef glossColor1 = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.35].CGColor;
-    CGColorRef glossColor2 = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1].CGColor;
+    UIColor *glossColor1 = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.35];
+    UIColor *glossColor2 = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
     
     // Calculate the top half of the given rect (where we'll draw "gloss" gradient)
     CGRect topHalf = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height/2);
     
     // Draw the "gloss" gradient
-    drawLinearGradient(context, topHalf, glossColor1, glossColor2);
+    drawLinearGradient(context, topHalf, glossColor1.CGColor, glossColor2.CGColor);
     
 }
 

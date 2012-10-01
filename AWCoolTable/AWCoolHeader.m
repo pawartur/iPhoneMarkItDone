@@ -59,16 +59,16 @@
     CGColorRef lightColor = _lightColor.CGColor;
     CGColorRef darkColor = _darkColor.CGColor;
     
-    CGColorRef whiteColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0].CGColor;
-    CGColorRef shadowColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.5].CGColor;   
+    UIColor *whiteColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    UIColor *shadowColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.5];
     
-    CGContextSetFillColorWithColor(context, whiteColor);
+    CGContextSetFillColorWithColor(context, whiteColor.CGColor);
     CGContextFillRect(context, _paperRect);
     
     // Save the current context state
     CGContextSaveGState(context);
     // Set shadow params
-    CGContextSetShadowWithColor(context, CGSizeMake(0, 2), 3.0, shadowColor);
+    CGContextSetShadowWithColor(context, CGSizeMake(0, 2), 3.0, shadowColor.CGColor);
     // Set fill color
     CGContextSetFillColorWithColor(context, lightColor);
     // Fill the colored box. Because we set the shadow, this act of filling will
